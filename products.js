@@ -21,25 +21,6 @@ function removeLocalStorage(key) {
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%//
 const sendButton = document.getElementById("mail-letter-button")
 const child = sendButton.children
-// const animation0 = [
-//     {left:"-100%"},
-//     {left: "-100%"},
-//     {left: "0%"}
-// ];
-// const animation1 = [
-//     {left: "0%", bottom: "-100%"},
-//     {left: "0", bottom: "0%"},
-//     {left:"100%", bottom:"0%"}
-// ];
-// const animation2 = [
-//     {top:"0%"},
-//     {top:"100%"},
-//     {top:"100%"},
-// ];
-// const animationTiming = {
-//     duration: 3000,
-//     iterations: 1,
-//     }
 
 function handleForm(event) {
     var v = document.getElementById("mail-letter-input")
@@ -57,14 +38,10 @@ function handleForm(event) {
     setInterval(() => {
         child[0].children[1].children[0].style.opacity = "1"
     }, 2000);
-    // child[0].animate(animation0, animationTiming)
-    // child[1].animate(animation1, animationTiming)
-    // child[2].animate(animation2, animationTiming)
 }
 const form = document.getElementById("form")
-form.addEventListener("submit",function(event){
-    handleForm(event)
-}, null)
+
+form.addEventListener("submit", event => handleForm(event))
 
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%//
@@ -83,16 +60,20 @@ var plusSVG = `
 </svg>
 `
 for(var i=0; i<dropButtonFoot.length;i++){
-    dropButtonFoot[i].addEventListener("click",dropFooter.bind(null, i), null)
+    dropButtonFoot[i].addEventListener("click",dropFooter.bind(null, i))
 }
 function dropFooter(i){
     var style = window.getComputedStyle(dropContainer[i].children[1])
     if (style.getPropertyValue("height") === "0px"){
         dropContainer[i].children[1].style.height = "150px"
-        dropButtonFoot[i].children[1].innerHTML = minusSVG
+        // dropButtonFoot[i].children[1].innerHTML = minusSVG
+        dropButtonFoot[i].children[2].children[1].style.transform = " rotateZ(90deg) scaleX(0.1)"
+
     } else {
         dropContainer[i].children[1].style.height = "0px"
-        dropButtonFoot[i].children[1].innerHTML = plusSVG
+        dropButtonFoot[i].children[2].children[1].style.transform = "scaleX(0)"
+        dropButtonFoot[i].children[2].children[1].style.transform = "rotateZ(90deg) translateX(0px)"
+        dropButtonFoot[i].children[2].children[1].style.opacity = "1"
 
     }
 }

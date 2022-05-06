@@ -40,7 +40,7 @@
         <!-- top image -->
         <div class="main-pics-container">
             <!-- <img src="./img/main.jpeg" alt="main-image-strawbarry" title="strawbarry"> -->
-            <img src="./img/parallax-complete.png" alt="main-image-strawbarry" title="strawbarry" id="main-image-id">
+            <img src="./img/parallax.png" alt="main-image-strawbarry" title="strawbarry" id="main-image-id">
 
             <div>
                 <section>
@@ -209,33 +209,59 @@
         <footer>
             <div class="main-footer">
                 <div class="container-mail">
-                    <!-- <div> -->
+                    <div>
                         <h2>Keep you informed about news, trends, and special offer</h2>
                         <form id="form">
                             <input type="text" id="mail-letter-input" placeholder="insert you email">
+                            <!-- TODO: usare psudo elementi -->
                             <button type="submit" id="mail-letter-button">
-                                <span>
-                                    SEND
-                                </span>
-                                <span>
+                                <section>
+                                    <span>
+                                        SENT
+                                    </span>
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </span>                                
+                                </section>
+                                <section>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                     </svg>
-                                </span>
+                                </section>
+                                <section>
+                                    <span>
+                                        SEND
+                                    </span>
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                        </svg>
+                                    </span>
+                                </section>
                             </button>
                         </form>
                         <p>
                             I am over 16 years and subscribe to the Rosenthal newsletter concerning porcelain, table, kitchen and home accessories from Rosenthal GmbH. Cancellation is possible at any time with effect for the future via the unsubscribe link in the newsletter or the unsubscribe function on this page. Please find more information here: Data privacy.
                         </p>
-                    <!-- </div> -->
+                    </div>
                 </div>
                 <div class="container-help">
-                    <ul>
+                    <button class="drop-button foot-mobile">
+                        <section></section>
+                        <h3>May we help you?</h3>
+                        <div>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </button>
+                    <ul class="droppable-ul">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M10 20C11.7246 20 13.387 19.562 14.8595 18.7418L19.0947 19.0947L18.7418 14.8595C19.562 13.387 20 11.7246 20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20ZM14.115 16.8621L14.3916 16.6958L16.9053 16.9053L16.6958 14.3916L16.8621 14.115C17.603 12.8824 18 11.4715 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18C11.4715 18 12.8824 17.603 14.115 16.8621ZM10.0003 14.998C10.5528 14.998 11.0007 14.5503 11.0007 13.998C11.0007 13.4458 10.5528 12.998 10.0003 12.998C9.44786 12.998 9 13.4458 9 13.998C9 14.5503 9.44786 14.998 10.0003 14.998ZM9 12H11V11C11 11.0024 11.0047 10.9972 11.0154 10.9854C11.0417 10.9565 11.1039 10.888 11.2205 10.7955C11.3207 10.716 11.3517 10.6954 11.6048 10.535C12.4661 9.98899 13 9.03956 13 8C13 6.34315 11.6569 5 10 5C8.34315 5 7 6.34315 7 8H9C9 7.44772 9.44772 7 10 7C10.5523 7 11 7.44772 11 8C11 8.34732 10.8225 8.66287 10.534 8.84581C10.2102 9.05108 10.1564 9.08671 9.97749 9.22865C9.38274 9.70048 9 10.2627 9 11V12Z" fill="black"/>
                         </svg>
                         <h3>May we help you?</h3>
-                        <li><a href="#">my order</a></li>
+                        <li><a href="#">My order</a></li>
                         <li><a href="#">FAQ</a></li>
                         <li><a href="#">Product care</a></li>
                         <li><a href="#">Shipping</a></li>
@@ -244,7 +270,15 @@
                     </ul>
                 </div>
                 <div class="container-help">
-                    <ul>
+                    <button class="drop-button foot-mobile">
+                        <section></section>
+                        <h3>Company</h3>
+                        <div>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </button>
+                    <ul class="droppable-ul mobile-droppable-ul">
                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M11 22C4.92487 22 0 17.0751 0 11C0 4.92487 4.92487 0 11 0C17.0751 0 22 4.92487 22 11C22 17.0751 17.0751 22 11 22ZM10.998 20C15.9686 20 19.998 15.9706 19.998 11C19.998 6.02944 15.9686 2 10.998 2C6.02748 2 1.99805 6.02944 1.99805 11C1.99805 15.9706 6.02748 20 10.998 20ZM12.176 7.16023H10V5.24023H12.176V7.16023ZM12.176 17.0002H10V8.36023H12.176V17.0002Z" fill="black"/>
                         </svg> 

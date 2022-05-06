@@ -40,46 +40,51 @@ getBanner()
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%//
 //------------------------EMAIL FORM FOOTER---------------------------//
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%//
-// sample implementation of POST
 const sendButton = document.getElementById("mail-letter-button")
 const child = sendButton.children
-const animation0 = [
-    {left:"-100%", top: "100%"},
-    {left: "0%"},
-    {left: "0%"},
-    {left: "0%", top:"100%"},
-    {left: "0%", top:"0%"}
-];
-const animation1 = [
-    {left:"-100%", top: "0%"},
-    {left: "0%"},
-    {left: "0%"},
-    {left: "0%", top: "0%"},
-    {left:"0%", top:"-100%"}
-];
-const animation2 = [
-    {left:"0%"},
-    {left: "100%"},
-    {left: "100%"},
-    {left: "100%"},
-    {left:"200%"}
-];
-
 function handleForm(event) {
     var v = document.getElementById("mail-letter-input")
     var val = v.value
     v.value=""
     // alert("submit: " + val)
     event.preventDefault()
-    child[0].animate(animation0, animationTiming)
-    child[1].animate(animation1, animationTiming)
-    child[2].animate(animation2, animationTiming)
+    child[1].style.bottom = "0%"
+    child[2].style.bottom = "100%"
+
+    setInterval(() => {
+        child[0].style.left = "0%"
+        child[1].style.left = "100%"
+    }, 1000);
+    setInterval(() => {
+        child[0].children[1].children[0].style.opacity = "1"
+    }, 2000);
 }
 const form = document.getElementById("form")
-form.addEventListener("submit",function(event){
-    handleForm(event)
-}, null)
+form.addEventListener("submit", event => handleForm(event))
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%//
+//-----------------------BUTTON MOBILE FOOTER-------------------------//
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%//
+const dropButtonFoot = document.getElementsByClassName("foot-mobile")
+const dropContainer = document.getElementsByClassName('container-help')
 
+for(var i=0; i<dropButtonFoot.length;i++){
+    dropButtonFoot[i].addEventListener("click",dropFooter.bind(null, i))
+}
+function dropFooter(i){
+    var style = window.getComputedStyle(dropContainer[i].children[1])
+    if (style.getPropertyValue("height") === "0px"){
+        dropContainer[i].children[1].style.height = "150px"
+        // dropButtonFoot[i].children[1].innerHTML = minusSVG
+        dropButtonFoot[i].children[2].children[1].style.transform = " rotateZ(90deg) scaleX(0.1)"
+
+    } else {
+        dropContainer[i].children[1].style.height = "0px"
+        dropButtonFoot[i].children[2].children[1].style.transform = "scaleX(0)"
+        dropButtonFoot[i].children[2].children[1].style.transform = "rotateZ(90deg) translateX(0px)"
+        dropButtonFoot[i].children[2].children[1].style.opacity = "1"
+
+    }
+}
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%//
 //-----------------------HEART ITEM-BUTTON----------------------------//
@@ -122,7 +127,7 @@ checkLocalWishList()
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%//
 //-------------------------DROPDOWN-BUTTON----------------------------//
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%//
-const dropButtonList = document.getElementsByClassName("drop-button")
+const dropButtonList = document.getElementsByClassName("dropdown-body")
 const dropContentList = document.getElementsByClassName('dropdown-content')
 var animationDrop = [{
     transform: "rotateZ(90deg) translateX(-100%)", 
@@ -135,7 +140,7 @@ const animationTime = {
 }
 
 for(var i=0;i<dropButtonList.length;i++){
-    dropButtonList[i].addEventListener('click', toDropContent.bind(null, i), null)
+    dropButtonList[i].addEventListener('click', toDropContent.bind(null, i))
 }
 
 function toDropContent(i) {
