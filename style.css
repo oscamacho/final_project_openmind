@@ -341,6 +341,62 @@ button {
     height: 25px;
     width: 25px;
 }
+@keyframes scroll {
+    0% {transform: translateX(0);}
+    100% {transform: translateX(calc(-250px *6));}
+    }
+    
+.slider svg {
+    position: relative;
+    height: 25px;
+    width: 25px;
+}
+.slider {
+    margin: auto;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    background-color: var(--white-main);
+    display: flex;
+    align-items: center;
+    height: 160px;
+}
+.slider:before,
+.slider:after{
+    content: "";
+    height: 100px;
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+}
+.slider:after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+}
+.slider:before {
+    left: 0;
+    top: 0;
+}
+.slide-track {
+    animation: scroll 45s linear infinite;
+    display: flex;
+    justify-content: center;
+    width: calc(250px * 12);
+}
+.slide-track:hover{
+    animation-play-state: paused;
+}
+.slide {
+    display: flex;
+    box-sizing: border-box;
+    width: 250px;
+    padding: 10px;
+    justify-content: start;
+    flex-direction: column;
+    text-align: center;
+}
 
 
 /*
@@ -971,13 +1027,17 @@ when resize from mobile with js opened content.
         padding: 0;
         margin:0;
     }
+    /*
+    :---------------------------------:
+                COMMON
+    :---------------------------------:
+    */
     .navbar-main h4 {
         display: none;
     }
     .navbar-main a svg {
         display: block;
     }
-
     .navbar-main h1 {
         font-weight: lighter;
         text-align: center;
@@ -1003,32 +1063,167 @@ when resize from mobile with js opened content.
         display: flex;
         align-items: center;
         height: 160px;
-        }
-
+    }
     .slider:before,
     .slider:after{
         content: "";
         position: absolute;
         z-index: 2;
     }
-
     .slider:after {
-    right: 0;
-    top: 0;
-    transform: rotateZ(180deg);
+        right: 0;
+        top: 0;
+        transform: rotateZ(180deg);
     }
-
     .slider:before {
-    left: 0;
-    top: 0;
+        left: 0;
+        top: 0;
     }
     .slide-track {
-        animation: scroll 5s linear infinite;
+        animation: scroll 45s linear infinite;
         display: flex;
         justify-content: center;
         width: calc(250px * 12);
         }
+    .carousel {
+        width: auto;
+        background-color: var(--white-main);
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        height: 130px;
+        overflow: auto;
+        /* white-space: pre-line; */
+    }
+    .carousel div {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        width: 500px;
+        padding: 0 40px;
+        box-sizing: border-box;
+        text-align: center;
+        white-space: nowrap;
+    }
+    .carousel svg {
+        position: relative;
+        height: 25px;
+        width: 25px;
+    }
+    .container-help{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        text-align: left;
+        /* padding: 0; */
+    }
+    .container-help li {
+        list-style: none;
+        margin: 10px;
+    }
+    .container-help a {
+        text-decoration: none;
+        color: #000;
+    }
+    .container-help ul svg,
+    .container-help ul h3{
+        display: none;
+    }
+    .container-help ul {
+        height: 0px;
+        max-height: 300px;
+        overflow: hidden;
+        margin-left: 20px;
+        transition: height .9s;
+    }
+    .drop-button.foot-mobile{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .foot-mobile svg{
+        margin: 0 20px;
+    }
+    .dropdown {
+        position: relative;
+        display: grid;
+        width: 100%;
+        grid-template-columns: auto;
+        box-sizing: border-box;
+        margin-top: 40px;
+        margin-bottom: 32px;
+        /* padding: 40px 81px; */
+        list-style: none;
 
+    }
+    .dropdown li {
+        width: 100%;
+        justify-self: center;
+    }
+    .drop-button {
+        background-color: var(--white-abusive);
+        box-sizing: border-box;
+        text-align: left;
+        width: 100%;
+        height: 48px;
+        border: none;
+    }
+    .dropdown-content {
+        width: 100%;
+    }
+    footer {
+        max-width: 100%;
+        display: inline;
+    }
+    footer div {
+        width: 100%;
+    }
+    .container-mail {
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        height: auto;
+        left: 0px;
+        top: 0px;
+        padding: 40px 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        left: 0;
+        transform: none;
+    }
+    .container-mail form {
+        display: block;
+    }
+    .container-mail input {
+        border: none;
+        border-bottom: 1px solid var(--white-light-smoke);
+        width: 90%;
+        margin-bottom: 40px;
+    }
+    .container-mail button{
+        background-color: var(--white-light-smoke);
+        border: none;
+        /* height: 48px; */
+        /* background-color: black; */
+        color: white;
+        text-decoration: none;
+        width: 25%;
+        max-width: 200px;
+        min-width: 130px;
+        height: 38px ;
+    }
+    .container-mail svg {
+        height: 20px;
+        width: 20px;
+    }
+    .container-mail p {
+        font-size: 8px;
+        color:#9D9D9D;
+    }
     .main-footer {
         box-sizing: border-box;
         position: relative;
@@ -1130,14 +1325,7 @@ when resize from mobile with js opened content.
         grid-column: initial;
     }
     .card-grid div {
-        /* position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #fff;
-        text-align: left; */
         padding: 24px;
-        /* height: 100%; */
     }
     .item-grid {
         width: 100%;
@@ -1163,6 +1351,7 @@ when resize from mobile with js opened content.
     .div-title {
         justify-content: start;
     }
+    /* !important is tricky for set two columns on mobile also if js set to four or six in desktop */
     .card-product {
         height: 576px !important;
         margin: 0 !important;
@@ -1183,7 +1372,6 @@ when resize from mobile with js opened content.
         padding: 20px 0px;
         font-size: 13px;
     }
-
     .card-product img {
         height: 100%;
         width: 100%;
@@ -1208,27 +1396,13 @@ when resize from mobile with js opened content.
     .item-desc * {
         text-align: left;
     }
-
-
     .item-desc section:nth-child(2) h5 {
         text-decoration: line-through;
     }
-     /* #image-grid {
-        display: flex;
-        width: 100%;
-        height: 100vw;
-        gap:0;
-        flex-wrap: nowrap; 
-        justify-content: start;
-        align-items: center; 
-        overflow: auto;
-        white-space: nowrap; 
-        object-fit: cover;
-    } */
+
     #image-grid section, img{
         position: relative;
         width: 100%;
-        /* object-fit: cover; */
     } 
     #image-grid {
         grid-template-columns: repeat(4, 1fr);
@@ -1245,82 +1419,12 @@ when resize from mobile with js opened content.
     }
     
     #image-grid img{
-        /* display: none; */
-        /* object-fit: cover; */
         height: 100%;
         width: 100%;
         transition: all .5s linear;
         /* cubic-bezier(0.68, -0.55, 0.265, 1.55); */
         /* filter: blur(10px); */
     }
-    
-    /*
-    :---------------------------------:
-                GENERAL
-    :---------------------------------:
-    */
-    .carousel {
-        width: auto;
-        background-color: var(--white-main);
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        height: 130px;
-        overflow: auto;
-        /* white-space: pre-line; */
-    }
-    .carousel div {
-        display: flex;
-        flex-direction: column;
-        margin: 0;
-        width: 500px;
-        padding: 0 40px;
-        box-sizing: border-box;
-        text-align: center;
-        white-space: nowrap;
-    }
-    .carousel svg {
-        position: relative;
-        height: 25px;
-        width: 25px;
-    }
-    .container-help{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        text-align: left;
-        /* padding: 0; */
-    }
-    .container-help li {
-        list-style: none;
-        margin: 10px;
-    }
-    .container-help a {
-        text-decoration: none;
-        color: #000;
-    }
-    .container-help ul svg,
-    .container-help ul h3{
-        display: none;
-    }
-    .container-help ul {
-        height: 0px;
-        max-height: 300px;
-        overflow: hidden;
-        margin-left: 20px;
-        transition: height .9s;
-    }
-    .drop-button.foot-mobile{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-    }
-    .foot-mobile svg{
-        margin: 0 20px;
-    }
-
     .item-button-div {
         display: flex;
         align-items: center;
@@ -1330,160 +1434,10 @@ when resize from mobile with js opened content.
     .item-button-div button {
         border: none;
         height: 48px;
-        /* background-color: black; */
-        /* color: white; */
         text-decoration: none;
     }
 
     .heart-item-button{
         display: none;
     }
-    .dropdown {
-        position: relative;
-        display: grid;
-        width: 100%;
-        grid-template-columns: auto;
-        box-sizing: border-box;
-        margin-top: 40px;
-        margin-bottom: 32px;
-        /* padding: 40px 81px; */
-        list-style: none;
-
-    }
-    .dropdown li {
-        width: 100%;
-        justify-self: center;
-    }
-    .drop-button {
-        background-color: var(--white-abusive);
-        box-sizing: border-box;
-        text-align: left;
-        width: 100%;
-        height: 48px;
-        border: none;
-    }
-    .dropdown-content {
-        width: 100%;
-    }
-    footer {
-        max-width: 100%;
-        display: inline;
-    }
-    footer div {
-        width: 100%;
-    }
-    .container-mail {
-        position: relative;
-        box-sizing: border-box;
-        width: 100%;
-        height: auto;
-        left: 0px;
-        top: 0px;
-        padding: 40px 24px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        left: 0;
-        transform: none;
-    }
-    .container-mail form {
-        display: block;
-    }
-    .container-mail input {
-        border: none;
-        border-bottom: 1px solid var(--white-light-smoke);
-        width: 90%;
-        margin-bottom: 40px;
-    }
-    .container-mail button{
-        background-color: var(--white-light-smoke);
-        border: none;
-        /* height: 48px; */
-        /* background-color: black; */
-        color: white;
-        text-decoration: none;
-        width: 25%;
-        max-width: 200px;
-        min-width: 130px;
-        height: 38px ;
-    }
-    .container-mail svg {
-        height: 20px;
-        width: 20px;
-    }
-    .container-mail p {
-        font-size: 8px;
-        color:#9D9D9D;
-    }
   }
-
-
-@keyframes scroll {
-0% {transform: translateX(0);}
-100% {transform: translateX(calc(-250px *6));}
-}
-
-/* .slider div {
-padding: 20px;
-margin: 20px;
-text-align: center;
-} */
-
-.slider svg {
-position: relative;
-height: 25px;
-width: 25px;
-}
-
-.slider {
-margin: auto;
-height: 300px;
-overflow: hidden;
-position: relative;
-width: 100%;
-background-color: var(--white-main);
-display: flex;
-align-items: center;
-height: 160px;
-}
-.slider:before,
-.slider:after{
-content: "";
-height: 100px;
-position: absolute;
-width: 200px;
-z-index: 2;
-}
-
-.slider:after {
-right: 0;
-top: 0;
-transform: rotateZ(180deg);
-}
-
-.slider:before {
-left: 0;
-top: 0;
-}
-
-.slide-track {
-animation: scroll 45s linear infinite;
-display: flex;
-justify-content: center;
-width: calc(250px * 12);
-}
-.slide-track:hover{
-    animation-play-state: paused;
-}
-
-.slide {
-    display: flex;
-    box-sizing: border-box;
-    /* background-color: chocolate; */
-    width: 250px;
-    padding: 10px;
-    justify-content: start;
-    flex-direction: column;
-    text-align: center;
-}
