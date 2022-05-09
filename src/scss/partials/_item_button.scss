@@ -1,0 +1,100 @@
+@import "./variables";
+
+#add-to-cart-section-1 {
+    left: -100%;
+    top:100%
+}
+#item-added-cart-section{
+    left: -100%;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(187, 48, 82);
+    svg{
+        width: 18px;
+        height: 18px
+    }    
+}
+.add-to-cart{
+    position: relative;
+    background-color: $white-light-smoke;
+    border: none;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    width: 80%;
+    max-width: 300px;
+    height: 64px ;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    transition: all .5s;
+    section {
+        position: absolute;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        padding: 0 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    span {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        svg {
+            height: 20px;
+            width: 20px;
+        }
+    }
+    h4 {
+        position: absolute;
+        font-size: 18px;
+        top:9px;
+        height: 30px;
+        width: 30px;
+    }    
+}
+
+.heart-item-button{
+    border: none;
+    height: 64px;
+    width:64px;
+    background-color: #000;
+    margin-left: 2px;
+    outline: none; 
+    /* problem here */
+}
+@keyframes heart-animation{
+    0%{
+        bottom: 50%;
+        opacity: 1;
+    }
+    100%{
+        transform: translateX(-50%) rotateY(360deg);
+        bottom:130%;
+        opacity: 0;
+    }
+}
+#heart-fly {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 1s linear;
+    z-index: -9;
+    outline: $white-abusive;
+    border: 0;
+    svg path {
+        fill: $strawberry-color;
+    }    
+}
+.toggle-heart-animation {
+    animation: heart-animation 2s 1;
+}
+.item-button-div {
+    margin-top: 50px;
+    display: flex;
+    width: 100%;
+}

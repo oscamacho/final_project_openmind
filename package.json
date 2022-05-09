@@ -1,0 +1,24 @@
+{
+  "name": "progetto_scss",
+  "version": "1.0.0",
+  "description": "e-commerce_CSS_standard by:_Andrea_Ascorti",
+  "main": "app.js",
+  "scripts": {
+    "sass-dev": "sass --watch src/scss:assets/css --style=expanded",
+    "sass-prod": "sass --no-source-map --style=compressed src/scss:assets/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oscamacho/strawberry-commerce.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oscamacho/strawberry-commerce/issues"
+  },
+  "homepage": "https://github.com/oscamacho/strawberry-commerce#readme",
+  "devDependencies": {
+    "sass": "^1.51.0"
+  }
+}

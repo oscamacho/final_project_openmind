@@ -1,0 +1,93 @@
+@import "./variables";
+
+.item-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    justify-content: stretch;
+    width: 100%;
+    font-size: 24px;
+    @media screen and(max-width: $breakpoint-phone) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+    }
+}
+#image-grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 66vw;
+    height: 66vw;
+    column-gap: 2px;
+    row-gap: 2px;
+    @media screen and(max-width: $breakpoint-phone) {
+        grid-template-columns: repeat(4, 1fr);
+        width: 100%;
+        height: 100vw;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    section{
+        position: relative;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        @media screen and(max-width: $breakpoint-phone) {
+            width: 100vw;
+        }
+    }
+    img{
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        transition: all .5s linear;
+        @media screen and(max-width: $breakpoint-phone) {
+            position: relative;
+        }
+        /* cubic-bezier(0.68, -0.55, 0.265, 1.55); */
+        /* filter: blur(10px); */
+    }
+}
+.lent {
+    position: absolute;
+    border: 2px solid black;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    z-index: 9;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, -50%);
+    pointer-events: none;
+    transform-origin: right;
+    background-image: url("./img/grid.jpg");
+    background-position: center;
+}
+.item-desc {
+    box-sizing: border-box;
+    padding: 0 24px;
+    font-size: 24px;
+    width: 100%;
+    @media screen and(max-width: $breakpoint-phone) {
+        padding: 24px;
+    }
+    > section:nth-child(1){
+        margin-bottom: 30px;
+        h4 {
+            font-weight: lighter;
+        }        
+    }
+    section:nth-child(2){
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        font-size: 18px;
+        h4, h5 {
+            margin-left: 10px;
+        }
+        h5 {
+            font-weight: lighter;
+            text-decoration: line-through;
+        }
+    }
+}

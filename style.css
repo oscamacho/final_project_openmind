@@ -8,13 +8,14 @@
     --white-main: #f5f5f5; 
     --white-light-smoke:  #747474;
     --white-abusive: rgb(240, 240, 240);
+    --product-button-opacity: 0;
 }
 html, body {
     margin:0;
     padding: 0;
     max-width: 100vw;
     background-color: var(--white-main);
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     font-family: var(--font-pacific);
 }
 *,
@@ -38,8 +39,7 @@ button {
 :---------------------------------:
             NAVBAR
 :---------------------------------:
-*/
-.navbar {
+*/.navbar {
     width: 100%;
     background-color: #fff;
     height: 100px;
@@ -88,6 +88,7 @@ button {
 }
 
 .navbar-main a {
+    position: relative;
     display: inline;
     margin: 10px;
     text-decoration: none;
@@ -95,6 +96,23 @@ button {
     font-weight: bolder;
     /* font-family: rob; */
 }
+
+.navbar-main a::before {
+    content: "";
+    background-color: var(--strawberry-color);
+    width: 0px;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transition: all .3s linear;
+    transform: translate(-50%, 0);
+}
+.navbar-main a:hover::before {
+    content: "";
+    width: 100%;
+}
+
 .navbar-main a svg {
     display: none;
 }
@@ -128,7 +146,14 @@ button {
     /* background-image: url("./img/main.jpeg");
     background-size: cover; */
 }
-
+.main-pics-container > section {
+    height: auto;
+    width: auto;
+    border: 2px solid aqua;
+    /* padding-bottom: 10%; */
+    /* box-sizing: border-box; */
+    transform: translate(0, -10%);
+}
 .main-pics-container img{
     position: relative;
     object-fit: cover;
@@ -137,6 +162,7 @@ button {
     /* -webkit-filter: drop-shadow(5px 5px 5px #222); */
     filter: drop-shadow(-40px -10px 7px var(--strawberry-color)); 
     transition: all .8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    /* transform:translate(0, -20%); */
      /* cubic-bezier(0.34, 1.56, 0.64, 1); */
     /* cambiare sopra */
 }
@@ -153,6 +179,11 @@ button {
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(20px);
+    background: rgba( 255, 255, 255, 0.1 );
+    /* box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
+    backdrop-filter: blur( 14px );
+    -webkit-backdrop-filter: blur( 14px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 .main-pics-container h4 {
     margin-bottom: 10px;
@@ -649,7 +680,7 @@ button {
     box-sizing: unset;
 }
 .card-product:hover{
-    background-color: #db9bb413;
+    background-color: var(--white-abusive);
 }
 .card-product img {
     height: 100%;
@@ -665,7 +696,10 @@ button {
     justify-content: space-between;
     text-align: left;
     padding: 35px 16px;
+    overflow: hidden;
+
 }
+
 
 
 .price-product {
@@ -675,7 +709,9 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 46px;
+    /* margin-top: 46px; */
+    background-color: var(--white-main);
+    height: 40px;
     /* padding: 14px; */
     /* align-items: baseline; */
     /* padding-bottom: 35px; */
@@ -685,6 +721,7 @@ button {
     display: flex;
     align-items: center;
 }
+
 .price-product p {
     font-size: var(--ultra-small-size);
     text-decoration: line-through;
@@ -697,6 +734,121 @@ button {
 .price-product button svg {
     fill: black;
 }
+.price-product h5{
+    position: relative;
+}
+.price-product h5::before{
+    content: "";
+    bottom: 0;
+    transform: translate(0%, 100%);
+    height: 2px;
+    width: 2px;
+    position: absolute;
+    background-color: var(--strawberry-color);
+    animation: added-to-cart-text 2.6s 1 forwards;
+}
+.price-product h5::after{
+    content: "";
+    top: 0;
+    right: 0;
+    transform: translate(0%, -100%) rotateY(180deg);
+    height: 2px;
+    width: 2px;
+    position: absolute;
+    background-color: var(--strawberry-color);
+    animation: added-to-cart-to-left 2.6s 1 forwards;
+}
+/* .price-product h5::after{
+    content: "-->";
+    display: block;
+    position: absolute;
+    right: 0;
+} */
+.add-to-cart-product{
+    position: absolute;
+    right: 0;
+    bottom: 50%;
+    transform: translate(0%, 50%);
+    outline: none;
+}
+.add-to-cart-product:focus::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-bottom: 2px solid var(--strawberry-color);
+}
+
+@keyframes pseudo-button-circle-before{
+    50%{
+        height: 40px;
+        width: 40px;
+        opacity: .5;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes added-to-cart-circle{
+    100%{
+        height: 400px;
+        width: 400px;
+        opacity: 0;
+    }
+}
+@keyframes added-to-cart-text{
+    100%{
+        width: 100%;
+    }
+}
+@keyframes added-to-cart-to-left {
+    100%{
+        width: 100%;
+    }
+}
+.added-to-cart-span{
+    position: absolute;
+    height: 0px;
+    width:0px;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(50%, 50%);
+    background-color: var(--strawberry-color);
+    /* background-color: #cc236744; */
+    border-radius: 50%;
+    transition: all 1.3s;
+    /* opacity: var(--product-button-opacity); */
+    z-index: -10;
+    animation:added-to-cart-circle 1.6s;
+}
+
+/* .add-to-cart-product:hover::before,
+.add-to-cart-product:hover::after{
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(50%, 50%);
+    background-color: var(--strawberry-color);
+    background-color: #cc236744;
+    border-radius: 50%;
+    transition: all 1.3s;
+    opacity: var(--product-button-opacity);
+    z-index: -1;
+} */
+/* .add-to-cart-product::before{
+    animation: pseudo-button-circle-before 2.6s infinite;
+}
+.add-to-cart-product::after{
+    opacity: 1;
+    animation: pseudo-button-circle-after 2.6s infinite; */
+/* } */
+
+/* 
+        SHARED ITEM/PRODUCT
+*/
 .filter-product {
     width: 100%;
     background-color: var(--white-main);
@@ -762,6 +914,7 @@ button {
     /* transition: all .5s linear; */
 }
 #image-grid section{
+    position: relative;
     height: 100%;
     width: 100%;
     overflow: hidden;
@@ -774,6 +927,22 @@ button {
     transition: all .5s linear;
     /* cubic-bezier(0.68, -0.55, 0.265, 1.55); */
     /* filter: blur(10px); */
+}
+.lent {
+    position: absolute;
+    border: 2px solid black;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    z-index: 9;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, -50%);
+    pointer-events: none;
+    transform-origin: right;
+    background-image: url("./img/grid.jpg");
+    background-position: center;
+    /* background-size: 150%; */
 }
 .item-desc {
     box-sizing: border-box;
@@ -1353,15 +1522,17 @@ when resize from mobile with js opened content.
     }
     /* !important is tricky for set two columns on mobile also if js set to four or six in desktop */
     .card-product {
-        height: 576px !important;
+        height: 100% !important;
         margin: 0 !important;
         width: 100%;
         max-width: 398px;
+        max-height: 100vh;
+        min-height: 570px;
         display: grid;
         grid-template-rows: 1fr 1fr !important;
     }
     .card-product div {
-        display: block !important;
+        display: flex !important;
     }
     .card-product div > span h2 {
         margin-bottom: 12px;
@@ -1369,9 +1540,15 @@ when resize from mobile with js opened content.
     .price-product {
         background-color: rgb(255, 255, 255);
         box-sizing: border-box;
-        padding: 20px 0px;
+        padding: 0px 0px;
+        display: flex;
+        justify-content: start;
         font-size: 13px;
     }
+    /* .price-product span {
+        display: flex;
+        flex-direction: column;
+    } */
     .card-product img {
         height: 100%;
         width: 100%;
