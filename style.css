@@ -15,7 +15,11 @@ html, body {
     padding: 0;
     max-width: 100vw;
     background-color: var(--white-main);
-    /* overflow-x: hidden; */
+    /*
+    overflow-x hidden useful for don't let the axis 
+    enlarge when 2nd card in index translate from the right
+    */
+    overflow-x: hidden;
     font-family: var(--font-pacific);
 }
 *,
@@ -361,11 +365,16 @@ button {
     justify-content: center;
     align-items: center;
     height: 160px;
+    overflow: hidden;
+    /* overflow-x: scroll; */
 }
 .carousel div {
+    width: 200px;
+    box-sizing: border-box;
     padding: 20px;
     margin: 20px;
     text-align: center;
+    border: 2px solid black;
 }
 .carousel svg {
     position: relative;
@@ -453,6 +462,8 @@ button {
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
+    box-sizing: border-box;
+    padding: 3%;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -464,7 +475,7 @@ button {
 .container-mail input {
     border: none;
     border-bottom: 1px solid var(--white-light-smoke);
-    width: 317px;
+    width: 100%;
     margin-right: 10px;
     height: 48px;
 }
@@ -672,12 +683,35 @@ button {
 }
 
 .card-product {
-    height: 576px;
+    height: auto;
     width: 100%;
     max-width: 398px;
     display: grid;
-    grid-template-rows: 2fr 1fr;
+    grid-template-rows: calc(100vw/4) calc(100vw/7); /* tricky to keep the ratio */
     box-sizing: unset;
+}
+
+.card-product a {
+    position: relative;
+}
+.card-product a > p {
+    position: absolute;
+    left: 18px;
+    top: 18px;
+    font-size: var(--ultra-small-size);
+}
+.card-product a > p:nth-last-child() {
+    top: 0;
+    bottom: 18px;
+}
+
+.card-product a svg {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+}
+.card-product a svg path {
+    fill: black;
 }
 .card-product:hover{
     background-color: var(--white-abusive);
@@ -692,10 +726,11 @@ button {
     position: relative;
     display: flex;
     flex-direction: column;
+    font-size: 11px;
     /* align-items: center; */
     justify-content: space-between;
     text-align: left;
-    padding: 35px 16px;
+    padding: 6% 5%;
     overflow: hidden;
 
 }
@@ -711,7 +746,7 @@ button {
     align-items: center;
     /* margin-top: 46px; */
     background-color: var(--white-main);
-    height: 40px;
+    height: 20%;
     /* padding: 14px; */
     /* align-items: baseline; */
     /* padding-bottom: 35px; */
@@ -736,6 +771,7 @@ button {
 }
 .price-product h5{
     position: relative;
+    font-size: 9px;
 }
 .price-product h5::before{
     content: "";
@@ -770,6 +806,8 @@ button {
     bottom: 50%;
     transform: translate(0%, 50%);
     outline: none;
+    /* transition: all 1.3s cubic-bezier(0.19, 1, 0.22, 1); */
+
 }
 .add-to-cart-product:focus::before {
     content: "";
@@ -816,10 +854,10 @@ button {
     background-color: var(--strawberry-color);
     /* background-color: #cc236744; */
     border-radius: 50%;
-    transition: all 1.3s;
     /* opacity: var(--product-button-opacity); */
     z-index: -10;
-    animation:added-to-cart-circle 1.6s;
+    animation: added-to-cart-circle 1.6s;
+    animation-delay: 100ms;
 }
 
 /* .add-to-cart-product:hover::before,
@@ -1380,8 +1418,8 @@ when resize from mobile with js opened content.
         /* background-color: black; */
         color: white;
         text-decoration: none;
-        width: 25%;
-        max-width: 200px;
+        /* width: 25%; */
+        max-width: 10px;
         min-width: 130px;
         height: 38px ;
     }

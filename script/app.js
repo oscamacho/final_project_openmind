@@ -1,41 +1,19 @@
-//-------------------------
-//LOCAL STORAGE UTILS
-//-------------------------
-function getLocalStorage(key) {
-    val = localStorage.getItem(key)
-    if (val !== null){
-        return val
-    }
-    return false
+var imgs = document.querySelectorAll("img")
+
+function loaded(i) {
+  console.log('loaded', i)
 }
-function addLocalStorage(key, value) {
-    localStorage.setItem(key, value)
-}
-function removeLocalStorage(key) {
-    localStorage.removeItem(key)
+for (img of imgs) {
+    if (img.complete) {
+        loaded(img)
+      } else {
+        img.addEventListener('load', loaded(img))
+        img.addEventListener('error', function() {
+            console.log('error')
+        })
+      }
 }
 
-//-----------------------
-//DROPDOWN MOBILE FOOTER
-//-----------------------
-const dropButtonFoot = document.getElementsByClassName("foot-mobile");
-const dropContainer = document.getElementsByClassName('container-help');
-
-for(var i=0; i<dropButtonFoot.length;i++){
-    dropButtonFoot[i].addEventListener("click",dropFooter.bind(null, i));
-}
-function dropFooter(i){
-    var style = window.getComputedStyle(dropContainer[i].children[1])
-    if (style.getPropertyValue("height") === "0px"){
-        dropContainer[i].children[1].style.height = "150px";
-        dropButtonFoot[i].children[2].children[1].style.transform = " rotateZ(90deg) scaleX(0.1)";
-    } else {
-        dropContainer[i].children[1].style.height = "0px";
-        dropButtonFoot[i].children[2].children[1].style.transform = "scaleX(0)";
-        dropButtonFoot[i].children[2].children[1].style.transform = "rotateZ(90deg) translateX(0px)";
-        dropButtonFoot[i].children[2].children[1].style.opacity = "1";
-    }
-}
 
 //-------------------------------
 //PARALLAX
@@ -54,48 +32,6 @@ function onMouseMove (event) {
 image.addEventListener('mousemove', function (event) {
     onMouseMove(event);
   });
-
-//-------------------------------
-//EMAIL FORM FOOTER
-//-------------------------------
-const sendButton = document.getElementById("mail-letter-button");
-const children = sendButton.children;
-const form = document.getElementById("form");
-
-function handleForm(event) {
-    var v = document.getElementById("mail-letter-input");
-    v.value="";
-    event.preventDefault();
-    children[1].style.bottom = "0%";
-    children[2].style.bottom = "100%";
-    setInterval(() => {
-        children[0].style.left = "0%";
-        children[1].style.left = "100%";
-    }, 1000);
-    setInterval(() => {
-        children[0].children[1].children[0].style.opacity = "1";
-    }, 2000);
-}
-form.addEventListener("submit", e => handleForm(e));
-
-//-------------------------------
-//NAVBAR BANNER
-//-------------------------------
-const banner = document.getElementsByClassName("navbar-banner");
-const closeBannerButton = document.getElementById("close-banner-button");
-closeBannerButton.addEventListener("click", closeBannerHandler, null)
-
-function closeBannerHandler() {
-    banner[0].style.display="none"
-    addLocalStorage("banner", "")
-}
-function getBanner() {
-    let closed = getLocalStorage("banner")
-    if (closed !== null) {
-        banner[0].style.display="none"
-    }
-}
-getBanner()
 
 //-------------------------------
 //HOME CARD TRANSITION
