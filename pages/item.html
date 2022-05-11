@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&display=swap" rel="stylesheet">
+    </head>
+    <body data-title="item_page">
+        <!-- navbar -->
+        <div class="navbar-banner">
+            <p>Sign up to our newsletter and get 10% discount</p>
+            <button id="close-banner-button">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M7.99956 6.58579L14.3635 0.221825L15.7777 1.63604L9.41377 8L15.7777 14.364L14.3635 15.7782L7.99956 9.41421L1.6356 15.7782L0.221383 14.364L6.58535 8L0.221383 1.63604L1.6356 0.221825L7.99956 6.58579Z" fill="white"/>
+                </svg>                        
+            </button>
+        </div>
+        <nav class="navbar">
+            <!-- svg is "display: none" on desktop, h4 "display:none" on mobile  -->
+            <div class="navbar-main">
+                <a href="./index.html">
+                    <h4>HOME</h4>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M18 10.9075L12 5.65754L6 10.9075V20H18V10.9075ZM12 3L20 10V20V22H18H6H4V20V10L12 3Z" fill="black"/>
+                    </svg>    
+                </a>
+                <a href="./products.html">
+                    <h4>PRODUCT</h4>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4 4H9V9H4V4ZM2 2H4H9H11V4V9V11H9H4H2V9V4V2ZM4 15H9V20H4V15ZM2 13H4H9H11V15V20V22H9H4H2V20V15V13ZM20 4H15V9H20V4ZM15 2H13V4V9V11H15H20H22V9V4V2H20H15ZM15 15H20V20H15V15ZM13 13H15H20H22V15V20V22H20H15H13V20V15V13Z" fill="black"/>
+                    </svg>                        
+                </a>
+                <h1>Brand Logo</h1>
+            </div>
+        </nav>
+        <div class="filter-product">
+            <section>
+                <span class="rev">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </span>
+                <a href="./index.html">
+                    Home
+                </a> 
+                /
+                <a href="./products.html">
+                    Product list
+                </a> 
+                /
+                <a href="#">
+                    Product
+                </a>
+            </section>
+
+        </div>
+        <div class="item-grid">
+            <div id="image-grid">
+                <section>
+                    <!-- <span class="lent"></span> -->
+                    <img src="../img/grid.jpg" alt="">
+                </section>
+                <section>
+                    <!-- <span class="lent"></span>    -->
+                    <img src="../img/item1.jpg" alt="">
+                </section>
+                <section>
+                    <!-- <span class="lent"></span>    -->
+                    <img src="../img/item2.jpg" alt="">
+                </section>
+                <section>
+                    <!-- <span class="lent"></span>    -->
+                    <img src="../img/item3.jpg" alt="">
+                </section>
+            </div>
+
+            <div class="item-desc">
+                <section>
+                    <h2>PRODUCT NAME</h2>
+                    <h4>Description</h4>
+                </section>
+                <section>
+                    <h3>$ 120,00</h3> <h4>-50%</h4> <h5>$ 240,00</h5>
+                </section>
+                <div class="item-button-div">
+                    <button class="add-to-cart">
+                        <section id="add-to-cart-section-1">
+                            <h3>
+                                Add to cart 
+                            </h3> 
+                            <span>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.03319 4C5.32717 1.81519 7.51054 0 9.99959 0C12.4886 0 14.672 1.81519 14.966 4H17.8466C18.9511 4 19.8466 4.89543 19.8466 6C19.8466 6.09464 19.8399 6.18916 19.8265 6.28284L18.1122 18.2828C17.9714 19.2681 17.1276 20 16.1323 20H3.86688C2.87158 20 2.02774 19.2681 1.88699 18.2828L0.172699 6.28284C0.0164898 5.18937 0.776288 4.17631 1.86976 4.0201C1.96344 4.00672 2.05796 4 2.1526 4H5.03319ZM7.07227 4H12.928C12.624 2.93808 11.3982 2 10.0001 2C8.60211 2 7.37626 2.93808 7.07227 4ZM2.15234 6H4.99933V8H6.99933V6H12.9993V8H14.9993V6H17.8463L16.132 18H3.86663L2.15234 6Z" fill="white"/>
+                                </svg>
+                            </span>
+                        </section>
+                        <section id="item-added-cart-section">
+                            <span>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="red" xmlns="http://www.w3.org/2000/svg">
+                                    <path id="heart-svg-path" fill-rule="evenodd" clip-rule="evenodd" d="M16.1393 2.00002C14.8232 2 13.9749 2.17138 13.0024 2.69171C12.6424 2.88435 12.3046 3.11635 11.9909 3.38701C11.6893 3.13153 11.365 2.91018 11.0198 2.72357C10.0285 2.18759 9.13662 2 7.86777 2C4.46949 2 2 5.07786 2 9.07526C2 12.0941 3.53985 15.0102 6.40804 17.8301C7.91354 19.3102 9.83575 20.7749 11.2124 21.5542L12 22L12.7876 21.5542C14.1643 20.7749 16.0865 19.3102 17.592 17.8301C20.4602 15.0102 22 12.0941 22 9.07526C22 5.12017 19.5072 2.01526 16.1393 2.00002ZM20.182 9.0751C20.182 11.4402 18.8967 13.8743 16.3763 16.3522C15.0022 17.7031 13.2356 19.0532 12.0002 19.7615C10.7648 19.0532 8.99819 17.7031 7.62406 16.3522C5.10365 13.8743 3.81836 11.4402 3.81836 9.0751C3.81836 6.12156 5.53076 3.9873 7.86795 3.9873C8.8768 3.9873 9.49847 4.11807 10.2139 4.50488C10.6365 4.73337 11.0101 5.03507 11.3334 5.41209L12.0023 6.1921L12.6651 5.40591C12.9957 5.01378 13.3747 4.70521 13.8019 4.47664C14.4964 4.10506 15.0793 3.9873 16.1357 3.98731C18.444 3.99777 20.182 6.16255 20.182 9.0751Z" fill="white"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg>
+                                <svg width="17" height="17" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11 9H20V11H11V20H9V11H0V9H9V0H11V9Z" fill="white"/>
+                                </svg>
+                            </span>
+                        </section>
+                        <section class="add-to-cart-section">
+                            <h3>
+                                Add to cart 
+                            </h3>
+                            <span>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.03319 4C5.32717 1.81519 7.51054 0 9.99959 0C12.4886 0 14.672 1.81519 14.966 4H17.8466C18.9511 4 19.8466 4.89543 19.8466 6C19.8466 6.09464 19.8399 6.18916 19.8265 6.28284L18.1122 18.2828C17.9714 19.2681 17.1276 20 16.1323 20H3.86688C2.87158 20 2.02774 19.2681 1.88699 18.2828L0.172699 6.28284C0.0164898 5.18937 0.776288 4.17631 1.86976 4.0201C1.96344 4.00672 2.05796 4 2.1526 4H5.03319ZM7.07227 4H12.928C12.624 2.93808 11.3982 2 10.0001 2C8.60211 2 7.37626 2.93808 7.07227 4ZM2.15234 6H4.99933V8H6.99933V6H12.9993V8H14.9993V6H17.8463L16.132 18H3.86663L2.15234 6Z" fill="white"/>
+                                </svg>
+                            </span>
+                        </section>
+                    </button>
+                    <button class="heart-item-button">
+                        <!--
+                            use full size empty section for keep outline without pass it to children
+                            when translate out of btn
+                        -->
+                        <span id="heart-fly" class="toggle-heart-animation ">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="red" xmlns="http://www.w3.org/2000/svg">
+                                <path id="heart-svg-path" fill-rule="evenodd" clip-rule="evenodd" d="M16.1393 2.00002C14.8232 2 13.9749 2.17138 13.0024 2.69171C12.6424 2.88435 12.3046 3.11635 11.9909 3.38701C11.6893 3.13153 11.365 2.91018 11.0198 2.72357C10.0285 2.18759 9.13662 2 7.86777 2C4.46949 2 2 5.07786 2 9.07526C2 12.0941 3.53985 15.0102 6.40804 17.8301C7.91354 19.3102 9.83575 20.7749 11.2124 21.5542L12 22L12.7876 21.5542C14.1643 20.7749 16.0865 19.3102 17.592 17.8301C20.4602 15.0102 22 12.0941 22 9.07526C22 5.12017 19.5072 2.01526 16.1393 2.00002ZM20.182 9.0751C20.182 11.4402 18.8967 13.8743 16.3763 16.3522C15.0022 17.7031 13.2356 19.0532 12.0002 19.7615C10.7648 19.0532 8.99819 17.7031 7.62406 16.3522C5.10365 13.8743 3.81836 11.4402 3.81836 9.0751C3.81836 6.12156 5.53076 3.9873 7.86795 3.9873C8.8768 3.9873 9.49847 4.11807 10.2139 4.50488C10.6365 4.73337 11.0101 5.03507 11.3334 5.41209L12.0023 6.1921L12.6651 5.40591C12.9957 5.01378 13.3747 4.70521 13.8019 4.47664C14.4964 4.10506 15.0793 3.9873 16.1357 3.98731C18.444 3.99777 20.182 6.16255 20.182 9.0751Z" fill="white"/>
+                            </svg>
+                        </span> 
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="red" xmlns="http://www.w3.org/2000/svg">
+                            <path id="heart-svg-path" fill-rule="evenodd" clip-rule="evenodd" d="M16.1393 2.00002C14.8232 2 13.9749 2.17138 13.0024 2.69171C12.6424 2.88435 12.3046 3.11635 11.9909 3.38701C11.6893 3.13153 11.365 2.91018 11.0198 2.72357C10.0285 2.18759 9.13662 2 7.86777 2C4.46949 2 2 5.07786 2 9.07526C2 12.0941 3.53985 15.0102 6.40804 17.8301C7.91354 19.3102 9.83575 20.7749 11.2124 21.5542L12 22L12.7876 21.5542C14.1643 20.7749 16.0865 19.3102 17.592 17.8301C20.4602 15.0102 22 12.0941 22 9.07526C22 5.12017 19.5072 2.01526 16.1393 2.00002ZM20.182 9.0751C20.182 11.4402 18.8967 13.8743 16.3763 16.3522C15.0022 17.7031 13.2356 19.0532 12.0002 19.7615C10.7648 19.0532 8.99819 17.7031 7.62406 16.3522C5.10365 13.8743 3.81836 11.4402 3.81836 9.0751C3.81836 6.12156 5.53076 3.9873 7.86795 3.9873C8.8768 3.9873 9.49847 4.11807 10.2139 4.50488C10.6365 4.73337 11.0101 5.03507 11.3334 5.41209L12.0023 6.1921L12.6651 5.40591C12.9957 5.01378 13.3747 4.70521 13.8019 4.47664C14.4964 4.10506 15.0793 3.9873 16.1357 3.98731C18.444 3.99777 20.182 6.16255 20.182 9.0751Z" fill="white"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <ul class="dropdown">
+                <li>
+                    <button aria-expanded="true" class="drop-button dropdown-body" id="description_btn">
+                        <!--
+                            use full size empty section for keep outline without pass to children
+                            when translate out of btn
+                        -->
+                        <section></section> 
+                        <h3>Description</h3>
+                        <div>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </button>
+                    <div class="dropdown-content">
+                        <p class="drop-p">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam dolores perspiciatis, ex amet possimus corrupti qui non eaque saepe doloremque fugiat molestiae quo assumenda recusandae minima, quam animi facilis similique.</p>
+                    </div>
+                </li>
+                <li>
+                    <button class="drop-button dropdown-body" id="detail_btn">
+                        <section></section>
+                        <h3>Detail</h3>
+                        <div>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </button>
+                    <div class="dropdown-content">
+                        <p class="drop-p">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam dolores perspiciatis, ex amet possimus corrupti qui non eaque saepe doloremque fugiat molestiae quo assumenda recusandae minima, quam animi facilis similique.</p>
+                    </div>
+                </li>
+                <li>
+                    <button class="drop-button dropdown-body" id="tech_btn">
+                        <section></section>
+                        <h3>Tech Spaces</h3>
+                        <div>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </button>
+                    <div class="dropdown-content">
+                        <p class="drop-p">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam dolores perspiciatis, ex amet possimus corrupti qui non eaque saepe doloremque fugiat molestiae quo assumenda recusandae minima, quam animi facilis similique.</p>
+                    </div>
+                </li>
+                <li>
+                    <button class="drop-button dropdown-body" id="care_btn">
+                        <section></section>
+                        <h3>Care Information</h3>
+                        <div>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </button>
+                    <div class="dropdown-content">
+                        <p class="drop-p">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam dolores perspiciatis, ex amet possimus corrupti qui non eaque saepe doloremque fugiat molestiae quo assumenda recusandae minima, quam animi facilis similique.</p>
+                    </div>
+                </li>
+            </ul>
+       <!-- purchase info -->
+       <div class="carousel">
+        <div>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                </svg>
+            </span>
+            <h4>High Quality Guaran</h4>
+        </div>
+        <div>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+            </span>
+            <h4>Personal Customer Service</h4>
+        </div>
+        <div>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+            </span>
+            <h4>Secure Payment</h4>
+        </div>
+        <div>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
+                </svg>
+            </span>
+            <h4>Free Shipping</h4>
+        </div>
+        <div>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </span>
+            <h4>Express Delivery</h4>
+            <h4>in 1-3 working days</h4>
+        </div>
+        <div>
+            <span>
+                <svg width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6.20715 1.70735C6.59767 1.31683 6.59767 0.683662 6.20715 0.293137C5.81662 -0.0973869 5.18346 -0.0973869 4.79293 0.293137L0.550293 4.53578L4.79293 8.77842C5.18346 9.16894 5.81662 9.16894 6.20715 8.77842C6.59767 8.38789 6.59767 7.75473 6.20715 7.36421L4.34303 5.50009H12.25C14.5973 5.50009 16.5 7.40288 16.5 9.75009C16.5 12.0973 14.5973 14.0001 12.25 14.0001H2.50004C1.94776 14.0001 1.50004 14.4478 1.50004 15.0001C1.50004 15.5524 1.94776 16.0001 2.50004 16.0001H12.25C15.7018 16.0001 18.5 13.2019 18.5 9.75009C18.5 6.29831 15.7018 3.50009 12.25 3.50009H4.41441L6.20715 1.70735Z" fill="black"/>
+                </svg>    
+            </span>
+            <h4>100 Days free Returns</h4>
+        </div>
+    </div>
+    <!-- footer grid -->
+    <footer>
+        <div class="main-footer">
+            <div class="container-mail">
+                <div>
+                    <h2>Keep you informed about news, trends, and special offer</h2>
+                    <form id="form">
+                        <input type="text" id="mail-letter-input" placeholder="insert you email">
+                        <!-- TODO: usare psudo elementi -->
+                        <button type="submit" id="mail-letter-button">
+                            <section>
+                                <span>
+                                    SENT
+                                </span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </span>                                
+                            </section>
+                            <section>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                            </section>
+                            <section>
+                                <span>
+                                    SEND
+                                </span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                </span>
+                            </section>
+                        </button>
+                    </form>
+                    <p>
+                        I am over 16 years and subscribe to the Rosenthal newsletter concerning porcelain, table, kitchen and home accessories from Rosenthal GmbH. Cancellation is possible at any time with effect for the future via the unsubscribe link in the newsletter or the unsubscribe function on this page. Please find more information here: Data privacy.
+                    </p>
+                </div>
+            </div>
+            <div class="container-help">
+                <button class="drop-button foot-mobile">
+                    <section></section>
+                    <h3>May we help you?</h3>
+                    <div>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+                <ul class="droppable-ul">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M10 20C11.7246 20 13.387 19.562 14.8595 18.7418L19.0947 19.0947L18.7418 14.8595C19.562 13.387 20 11.7246 20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20ZM14.115 16.8621L14.3916 16.6958L16.9053 16.9053L16.6958 14.3916L16.8621 14.115C17.603 12.8824 18 11.4715 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18C11.4715 18 12.8824 17.603 14.115 16.8621ZM10.0003 14.998C10.5528 14.998 11.0007 14.5503 11.0007 13.998C11.0007 13.4458 10.5528 12.998 10.0003 12.998C9.44786 12.998 9 13.4458 9 13.998C9 14.5503 9.44786 14.998 10.0003 14.998ZM9 12H11V11C11 11.0024 11.0047 10.9972 11.0154 10.9854C11.0417 10.9565 11.1039 10.888 11.2205 10.7955C11.3207 10.716 11.3517 10.6954 11.6048 10.535C12.4661 9.98899 13 9.03956 13 8C13 6.34315 11.6569 5 10 5C8.34315 5 7 6.34315 7 8H9C9 7.44772 9.44772 7 10 7C10.5523 7 11 7.44772 11 8C11 8.34732 10.8225 8.66287 10.534 8.84581C10.2102 9.05108 10.1564 9.08671 9.97749 9.22865C9.38274 9.70048 9 10.2627 9 11V12Z" fill="black"/>
+                    </svg>
+                    <h3>May we help you?</h3>
+                    <li><a href="#">My order</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Product care</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Payment</a></li>
+                    <li><a href="#">Contact us</a></li>
+                </ul>
+            </div>
+            <div class="container-help">
+                <button class="drop-button foot-mobile">
+                    <section></section>
+                    <h3>Company</h3>
+                    <div>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+                <ul class="droppable-ul mobile-droppable-ul">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M11 22C4.92487 22 0 17.0751 0 11C0 4.92487 4.92487 0 11 0C17.0751 0 22 4.92487 22 11C22 17.0751 17.0751 22 11 22ZM10.998 20C15.9686 20 19.998 15.9706 19.998 11C19.998 6.02944 15.9686 2 10.998 2C6.02748 2 1.99805 6.02944 1.99805 11C1.99805 15.9706 6.02748 20 10.998 20ZM12.176 7.16023H10V5.24023H12.176V7.16023ZM12.176 17.0002H10V8.36023H12.176V17.0002Z" fill="black"/>
+                    </svg> 
+                    <h3>Company</h3>
+                    <li><a href="#"> #DiscoverBrandName</a></li>
+                    <li><a href="#">Catalogs</a></li>
+                    <li><a href="#">For professionals</a></li>
+                    <li><a href="#">Hotel & Restaurants</a></li>
+                    <li><a href="#">Arcturus Group</a></li>
+                    <li><a href="#">Work with us</a></li>
+                </ul>
+            </div>
+            <div class="social-footer">
+                <h2>follow us on</h2>
+                <a id="instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.8 7C16.2477 7 15.8 7.44772 15.8 8C15.8 8.55228 16.2477 9 16.8 9V7ZM16.8422 9C17.3945 9 17.8422 8.55228 17.8422 8C17.8422 7.44772 17.3945 7 16.8422 7V9ZM7.2 5H16.8V3H7.2V5ZM19 7.2V16.8H21V7.2H19ZM16.8 19H7.2V21H16.8V19ZM5 16.8V7.2H3V16.8H5ZM7.2 19C5.98497 19 5 18.015 5 16.8H3C3 19.1196 4.8804 21 7.2 21V19ZM19 16.8C19 18.015 18.015 19 16.8 19V21C19.1196 21 21 19.1196 21 16.8H19ZM16.8 5C18.015 5 19 5.98497 19 7.2H21C21 4.8804 19.1196 3 16.8 3V5ZM7.2 3C4.8804 3 3 4.8804 3 7.2H5C5 5.98497 5.98497 5 7.2 5V3ZM12 14.2C10.785 14.2 9.8 13.215 9.8 12H7.8C7.8 14.3196 9.6804 16.2 12 16.2V14.2ZM14.2 12C14.2 13.215 13.215 14.2 12 14.2V16.2C14.3196 16.2 16.2 14.3196 16.2 12H14.2ZM12 9.8C13.215 9.8 14.2 10.785 14.2 12H16.2C16.2 9.6804 14.3196 7.8 12 7.8V9.8ZM12 7.8C9.6804 7.8 7.8 9.6804 7.8 12H9.8C9.8 10.785 10.785 9.8 12 9.8V7.8ZM16.8 9H16.8422V7H16.8V9Z" fill="black"/>
+                    </svg>
+                </a>
+                <a id="twitter">
+                    <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.9722 1L19.9701 0.934875C19.9438 0.532098 19.678 0.184614 19.2961 0.0538942C18.9142 -0.0768257 18.4912 0.0348511 18.2236 0.33703L18.9722 1ZM18.6885 4.86469C18.6885 4.31241 18.2408 3.86469 17.6885 3.86469C17.1362 3.86469 16.6885 4.31241 16.6885 4.86469H18.6885ZM10 6.02857V7.02857H11V6.02857H10ZM2.28373 1L3.22203 0.654171C3.08369 0.278843 2.735 0.0220625 2.33553 0.00134248C1.93606 -0.0193776 1.56267 0.19995 1.38625 0.558952L2.28373 1ZM7.3 12.8857L8.0132 13.5867C8.25441 13.3413 8.35249 12.9891 8.27285 12.6543C8.19322 12.3195 7.94706 12.0492 7.62118 11.9387L7.3 12.8857ZM1 15.3673V14.3673C0.560813 14.3673 0.173027 14.6539 0.0440758 15.0737C-0.0848756 15.4936 0.0751916 15.9484 0.438655 16.1949L1 15.3673ZM16.7064 2.27135L15.9594 2.93621L16.3209 3.34242L16.8584 3.25972L16.7064 2.27135ZM17.9743 1.06512C18.0396 2.06453 17.9753 2.6281 17.8354 3.02881C17.703 3.40795 17.4706 3.73486 16.991 4.20181L18.386 5.63492C18.9671 5.06924 19.4451 4.48569 19.7236 3.68816C19.9945 2.91221 20.0418 2.03292 19.9701 0.934875L17.9743 1.06512ZM18.6885 5.81632V4.91837H16.6885V5.81632H18.6885ZM18.6885 4.91837V4.86469H16.6885V4.91837H18.6885ZM9 5.11429V6.02857H11V5.11429H9ZM13.8901 0C11.1164 0 9 2.43588 9 5.11429H11C11 3.40529 12.3515 2 13.8901 2V0ZM16.6885 5.81632C16.6885 11.295 12.157 16 6.85 16V18C13.3299 18 18.6885 12.3301 18.6885 5.81632H16.6885ZM1.34543 1.34583C2.08678 3.35724 4.84208 7.02857 10 7.02857V5.02857C5.91506 5.02857 3.76441 2.12576 3.22203 0.654171L1.34543 1.34583ZM1.38625 0.558952C0.0105553 3.35833 -0.250546 6.14464 0.737956 8.54776C1.72747 10.9533 3.89114 12.7856 6.97882 13.8327L7.62118 11.9387C4.93207 11.0267 3.30388 9.52829 2.58759 7.78693C1.87029 6.04312 1.98944 3.86616 3.18121 1.44105L1.38625 0.558952ZM6.5868 12.1848C5.87175 12.9123 3.75209 14.3673 1 14.3673V16.3673C4.40981 16.3673 7.01663 14.6006 8.0132 13.5867L6.5868 12.1848ZM17.4533 1.6065C16.5787 0.623868 15.3073 0 13.8901 0V2C14.7067 2 15.444 2.35714 15.9594 2.93621L17.4533 1.6065ZM16.8584 3.25972C17.9251 3.09561 18.9536 2.5294 19.7209 1.66297L18.2236 0.33703C17.7508 0.870952 17.1375 1.19326 16.5543 1.28298L16.8584 3.25972ZM0.438655 16.1949C2.58178 17.6486 4.649 18 6.85 18V16C4.90224 16 3.26941 15.6983 1.56134 14.5398L0.438655 16.1949Z" fill="black"/>
+                    </svg>
+                </a>
+                <a id="pinterest">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.5 17.65L10 8.73998M5.92251 12.52C5.05 11.8 4.6 10.9681 4.6 10V9.10001C4.6 6.66444 6.66442 4.6 9.1 4.6H10.9C13.3356 4.6 15.4 6.66442 15.4 9.1V10C15.4 12.0876 13.4376 13.6 11.35 13.6C10.0417 13.6 8.91531 12.6766 8.65874 11.3937L8.65 11.35M10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10C19 14.9706 14.9706 19 10 19Z" stroke="black" stroke-width="2"/>
+                    </svg>
+                </a>
+                <a id="youtube">
+                    <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.53082 14.292L2.34278 15.2742H2.34278L2.53082 14.292ZM17.4692 14.292L17.6572 15.2742H17.6572L17.4692 14.292ZM17.5717 1.76785L17.7727 0.788249L17.5717 1.76785ZM2.42826 1.76785L2.6292 2.74746H2.6292L2.42826 1.76785ZM8.2 5.38381L8.69804 4.51666C8.38859 4.33892 8.00787 4.33957 7.69902 4.51835C7.39017 4.69713 7.2 5.02695 7.2 5.38381H8.2ZM8.2 10.5529H7.2C7.2 10.9098 7.39017 11.2396 7.69902 11.4184C8.00787 11.5971 8.38859 11.5978 8.69804 11.4201L8.2 10.5529ZM12.7 7.96835L13.198 8.83551C13.5085 8.65717 13.7 8.32643 13.7 7.96835C13.7 7.61028 13.5085 7.27954 13.198 7.1012L12.7 7.96835ZM0 3.45904V12.5046H2V3.45904H0ZM20 12.5046V3.45904H18V12.5046H20ZM2.34278 15.2742C7.39764 16.2419 12.6024 16.2419 17.6572 15.2742L17.2812 13.3099C12.4747 14.23 7.52525 14.23 2.71885 13.3099L2.34278 15.2742ZM17.7727 0.788249C12.6489 -0.262749 7.35108 -0.26275 2.22732 0.788249L2.6292 2.74746C7.4878 1.75085 12.5122 1.75085 17.3708 2.74746L17.7727 0.788249ZM20 3.45904C20 2.13959 19.0418 1.04858 17.7727 0.788249L17.3708 2.74746C17.7678 2.82889 18 3.14737 18 3.45904H20ZM18 12.5046C18 12.8639 17.7299 13.224 17.2811 13.3099L17.6572 15.2742C18.9887 15.0193 20 13.8831 20 12.5046H18ZM0 12.5046C0 13.8831 1.01132 15.0193 2.34278 15.2742L2.71885 13.3099C2.2701 13.224 2 12.8639 2 12.5046H0ZM2 3.45904C2 3.14737 2.23219 2.82889 2.6292 2.74746L2.22732 0.788249C0.95816 1.04858 0 2.13959 0 3.45904H2ZM7.2 5.38381V10.5529H9.2V5.38381H7.2ZM8.69804 11.4201L13.198 8.83551L12.202 7.1012L7.70196 9.68575L8.69804 11.4201ZM13.198 7.1012L8.69804 4.51666L7.70196 6.25096L12.202 8.83551L13.198 7.1012Z" fill="black"/>
+                    </svg>
+                </a>
+                <a id="facebook">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10C19 14.9706 14.9706 19 10 19ZM10 19V8.2C10 7.20589 10.8059 6.4 11.8 6.4H13.15M6.85 11.8H13.15" stroke="black" stroke-width="2"/>
+                    </svg>    
+                </a>
+
+            </div>
+        </div>
+        <!-- social link -->
+        <div class="right-footer">
+            <p> © 2021 Arcturus Brand Name S.p.A. All rights reserved</p> 
+            <a href="#">General terms & conditions</a>
+            <a href="#">Privacy & Cookies Policy</a>
+            <a href="#">Imprint</a>
+        </div>
+    </footer>
+    <script type="text/javascript" src="../script/item.js"></script>
+    <script type="text/javascript" src="../script/utils.js"></script>
+</body>
+</html>

@@ -126,10 +126,10 @@ function addToCart (e) {
         svgCartDiv.classList.add("added-to-cart-span");
         btnBag.append(svgCartDiv);
     }, 1000);
-    btnBag.style.transition = `all .6s linear`;
-    btnBag.style.right = `50%`;
-    btnBag.style.bottom=`${parentHeight/2-35}px`;
-    btnBag.style.transform = `translate(50%, 0%) scale(1.5)`;
+    // btnBag.style.transition = `all .6s linear`;
+    // btnBag.style.right = `50%`;
+    // btnBag.style.bottom=`${parentHeight/2-35}px`;
+    // btnBag.style.transform = `translate(50%, 0%) scale(1.5)`;
 }
 
 /**

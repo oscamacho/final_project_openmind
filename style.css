@@ -454,7 +454,7 @@ button {
 }
 .container-mail {
     position: relative;
-    width: 400px;
+    width: 75.66%;
     height: auto;
     left: 0px;
     top: 0px;
@@ -463,7 +463,7 @@ button {
     justify-content: center;
     flex-direction: column;
     box-sizing: border-box;
-    padding: 3%;
+    /* padding: 3%; */
     left: 50%;
     transform: translateX(-50%);
 }
@@ -491,7 +491,7 @@ button {
     color: white;
     line-height: 10px;
     text-decoration: none;
-    width: 120px;
+    width: 150px;
     height: 48px ;
     overflow: hidden;
 }
@@ -554,6 +554,27 @@ button {
 .container-help a {
     text-decoration: none;
     color: #000;
+    position: relative;
+}
+.container-help a::before {
+    content: "";
+    background-color: var(--strawberry-color);
+    width: 0px;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    transition: all .3s linear;
+}
+.container-help li:nth-child(even) a::before {
+    right: 0;
+}
+.container-help li:nth-child(odd) a:hover::before {
+    content: "";
+    width: 100%;
+}
+.container-help li:nth-child(even) a:hover::before {
+    content: "";
+    width: 100%;
 }
 .drop-button {
     display: none;
@@ -730,7 +751,7 @@ button {
     /* align-items: center; */
     justify-content: space-between;
     text-align: left;
-    padding: 6% 5%;
+    padding: 8% 5%;
     overflow: hidden;
 
 }
@@ -1565,12 +1586,14 @@ when resize from mobile with js opened content.
         width: 100%;
         max-width: 398px;
         max-height: 100vh;
-        min-height: 570px;
+        /* min-height: 570px; */
         display: grid;
         grid-template-rows: 1fr 1fr !important;
+        border: 1px solid saddlebrown;
     }
     .card-product div {
         display: flex !important;
+        padding-bottom: 15.6%;
     }
     .card-product div > span h2 {
         margin-bottom: 12px;
