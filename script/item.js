@@ -1,4 +1,3 @@
-import {removeLocalStorage, getLocalStorage, addLocalStorage} from "./utils"
 //-------------------------------
 //HEART ADD TO WISHLIST
 //-------------------------------
@@ -157,4 +156,22 @@ for (const element of imagesContainer.children){
     element.children[0].addEventListener('mousemove', onMove, false);
     element.children[0].addEventListener('mouseout', () => onMouseOutImage(element));
     element.children[0].addEventListener("click", () => handleRemoveMove(element));
+}
+//-------------------------------
+//LOCAL STORAGE
+//-------------------------------
+function getLocalStorage(key) {
+    val = localStorage.getItem(key)
+    if (val !== null){
+        return val
+    }
+    return false
+}
+
+function addLocalStorage(key, value) {
+    localStorage.setItem(key, value)
+}
+
+function removeLocalStorage(key) {
+    localStorage.removeItem(key)
 }
