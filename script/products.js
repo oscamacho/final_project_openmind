@@ -60,7 +60,13 @@ for(const element of productCardBody){
     let productButton = element.lastElementChild;
     productButton.addEventListener("click",() => addToCart(element));
 }
-
+//-------------------------------
+//ADD TO CART BUTTON ANIMATION
+//-------------------------------
+const heartButtons = document.getElementsByClassName("add-to-wishlist")
+for(let heart of heartButtons){
+    heart.addEventListener("click", () => {add} )
+}
 //-------------------------------
 //GRID ROWS ANIMATION
 //-------------------------------
@@ -102,7 +108,9 @@ function animateGrid(numCol){
 
 /**
  * 
- * @param {HTMLObject} e 
+ * @param {HTMLObject} e element reference,
+ * the function add +1 to the product clicked in the cart saved in localstorage,
+ * and triggered the animation
  */
 function addToCart (e) {
     let cartSVG = `
@@ -112,8 +120,8 @@ function addToCart (e) {
     `
     let parent = e.parentNode
     // localStorage.removeItem("wishlist")
-    // addToCartLocalStorage(1)
-    remCartFromLocalStorage(1)
+    addToCartLocalStorage(1)
+    // remCartFromLocalStorage(1)
     let amountInWishlist = getCartFromLocalStorage(1)
     let parentSpanTop = document.createElement("span");
     let parentSpanBottom = document.createElement("span");
@@ -142,18 +150,6 @@ function addToCart (e) {
     }, 3500)
 }
 
-/**
- * @param {object} el element reference
- * @param {number} threshold threshold of animation start before the appareance of element on screen
- */
-function elementIsVisible(el, threshold) {
-    const elementTop = el.getBoundingClientRect().top;
-    const c = (window.innerHeight || document.documentElement.clientHeight) / threshold
-    return (
-        elementTop <= c
-    );
-};
-
 //hard
 const carousel = document.getElementsByClassName("carousel")
 let windowW = window.innerWidth
@@ -161,21 +157,36 @@ const mid = (a, b) => {
     return (a + b)/2
 } 
 for(let i = 0; i<carousel[0].children.length; i++){
-    let rect =  carousel[0].children[i].getBoundingClientRect()
-    console.log(rect.left - windowW/2, "\n")
+    let rect =  carousel[0].children[i].getBoundingClientRect();
+    console.log(rect.left - windowW/2, "\n");
     if (Math.abs(mid(rect.left, rect.right) - windowW/2) < 200 ) {
-        carousel[0].children[i].style.width = `150px`
+        carousel[0].children[i].style.width = `150px`;
     } else if(Math.abs(mid(rect.left, rect.right) - windowW/2) > 200) {
-        carousel[0].children[i].style.transform = `rotateY(70deg)`
-        carousel[0].children[i].style.opacity = .5
+        carousel[0].children[i].style.transform = `rotateY(70deg)`;
+        carousel[0].children[i].style.opacity = .5;
 
     } else {
-        carousel[0].children[i].style.transform = `rotateY(45deg)`
-        carousel[0].children[i].style.opacity = .7
+        carousel[0].children[i].style.transform = `rotateY(45deg)`;
+        carousel[0].children[i].style.opacity = .7;
     }
-}
+};
 
+/**
+ * @param {object} el element reference
+ * @param {number} threshold threshold of animation start before the appareance of element on screen
+ */
+ function elementIsVisible(el, threshold) {
+    const elementTop = el.getBoundingClientRect().top;
+    const c = (window.innerHeight || document.documentElement.clientHeight) / threshold
+    return (
+        elementTop <= c
+    );
+};
 
+/**
+ * 
+ * @param {Number} id increment of 1 the amount of the specific id product in the localstorage
+ */
 function addToCartLocalStorage(id) {
     let [isOnWish, arr] = getFromLocalStorage(id, "cart")
     console.log(arr)
@@ -183,11 +194,19 @@ function addToCartLocalStorage(id) {
         arr.push({"id": id, "amount": 1})
     } else {
         arr[isOnWish]["amount"]+=1
+        console.log("added", arr)
     }
     let strWishlist = JSON.stringify(arr)
     localStorage.setItem("cart", strWishlist)
 }
 
+/**
+ * 
+ * @param {Number} id id field of the object stored in the array
+ * @param {*String} key key of the localstorage
+ * @returns the index of the requestes object in the array and the array itself
+ *  or return null and empty array if the object with the specified id is not found 
+ */
 function getFromLocalStorage(id, key){
     console.log(key)
     let res = localStorage.getItem(key);
@@ -206,6 +225,13 @@ function getFromLocalStorage(id, key){
         return [null, []];
     }
 }
+
+/**
+ * 
+ * @param {Number} id 
+ * @returns return the amount of the specific ids product in localstorage
+ *  or return false if the product is not found 
+ */
 function getCartFromLocalStorage(id){
     let [index, wishlist] = getFromLocalStorage(id, "cart");
     if (index !== null){
@@ -214,6 +240,11 @@ function getCartFromLocalStorage(id){
     }
     else return false
 }
+
+/**
+ * 
+ * @param {Number} id remove the specific id object from the cart in localstorage
+ */
 function remCartFromLocalStorage(id){
     let [isOnCart, arr] = getFromLocalStorage(id, "cart")
     console.log(arr)
@@ -226,11 +257,32 @@ function remCartFromLocalStorage(id){
     localStorage.setItem("cart", strCartList)
 }
 
+/**
+ * 
+ * @param {Number} id 
+ * @returns return the amount from wishlist with the specific id
+ */
 function getWishlistFromLocalStorage(id){
     let [index, wishlist] = getFromLocalStorage(id, "wishlist");
     if (index !== null){
-        console.log(wishlist[index]["amount"]);
-        return wishlist[index]["amount"];
+        console.log(wishlist[index]);
+        return wishlist[index];
     }
     else return false
+}
+
+/**
+ * 
+ * @param {Number} id increment of 1 the amount of the specific id product in the localstorage
+ */
+ function addToWishlistLocalStorage(id) {
+    let [isOnWish, arr] = getFromLocalStorage(id, "wishlist")
+    console.log(arr)
+    if(isOnWish === null){
+        arr.push({"id": id})
+    } else {
+        console.log("added", arr)
+    }
+    let strWishlist = JSON.stringify(arr)
+    localStorage.setItem("wishlist", strWishlist)
 }

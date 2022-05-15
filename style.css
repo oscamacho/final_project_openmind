@@ -715,23 +715,32 @@ button {
 .card-product a {
     position: relative;
 }
-.card-product a > p {
+.card-product a p {
     position: absolute;
+    height: 15px;
     left: 18px;
-    top: 18px;
+    /* left: 18px;
+    top: 18px; */
     font-size: var(--ultra-small-size);
 }
-.card-product a > p:nth-last-child() {
-    top: 0;
+.card-product a p:nth-child(2) {
+    top: 18px;
+}
+.card-product a p:nth-child(3) {
     bottom: 18px;
 }
 
-.card-product a svg {
+.card-product a button {
     position: absolute;
     top: 18px;
     right: 18px;
+    background: none;
+    border: none;
 }
-.card-product a svg path {
+.card-product a svg {
+    background-color: none;
+}
+.card-product a button svg path {
     fill: black;
 }
 .card-product:hover{
@@ -774,7 +783,7 @@ button {
     transition: all 1s cubic-bezier(0.47, 0, 0.745, 0.715);
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     color: var(--white-main);
     justify-content: center;
     padding: 3px;
@@ -787,7 +796,7 @@ button {
 .card-product-span-top{
     top: -100%;
     left: 0;
-    text-align: left;
+    text-align: center;
 }
 .card-product-span-enter{
     height: 90px;
@@ -1542,7 +1551,6 @@ when resize from mobile with js opened content.
         /* min-height: 570px; */
         display: grid;
         grid-template-rows: 1fr 1fr !important;
-        border: 1px solid saddlebrown;
     }
     .card-product div {
         display: flex !important;

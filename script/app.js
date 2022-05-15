@@ -3,12 +3,12 @@ var imgs = document.querySelectorAll("img")
 function loaded(i) {
   console.log('loaded', i)
 }
-for (img of imgs) {
-    if (img.complete) {
-        loaded(img)
+for (i of imgs) {
+    if (i.complete) {
+        loaded(i)
       } else {
-        img.addEventListener('load', loaded(img))
-        img.addEventListener('error', function() {
+        i.addEventListener('load', loaded(i))
+        i.addEventListener('error', function() {
             console.log('error')
         })
       }
@@ -18,7 +18,10 @@ for (img of imgs) {
 //-------------------------------
 //PARALLAX
 //-------------------------------
-const image = document.getElementsByClassName("main-pics-container")[0].children[0].children[0];
+// const image = document.getElementsByClassName("main-pics-container")[0].children[0].children[0];
+const image = document.getElementById("main-image-id") 
+// const image2 = document.getElementsByClassName("main-pics-container")[0].children[0].children[1];
+
 function onMouseMove (event) {
     const target = event.currentTarget;
     const w = target.offsetWidth / 2;
@@ -27,11 +30,17 @@ function onMouseMove (event) {
     var x = event.clientX - w;
     image.style.filter = (`drop-shadow(${x/30-70}px ${y/30+30}px 4px var(--strawberry-color))`);
     image.style.transform = `translate(0px,${y/8}px)`;
+    // image2.style.transform = `translate(0px,${-y/8}px)`
+    // image.style.filter= `invert(50%)`;
+
 }
 
 image.addEventListener('mousemove', function (event) {
     onMouseMove(event);
   });
+  // image2.addEventListener('mousemove', function (event) {
+  //   onMouseMove(event);
+  // });
 
 //-------------------------------
 //HOME CARD TRANSITION
