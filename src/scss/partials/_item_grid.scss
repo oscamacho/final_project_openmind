@@ -14,6 +14,7 @@
     }
 }
 #image-grid {
+    position: relative;
     display: grid;
     grid-template-columns: 50% 50%;
     width: 66vw;
@@ -26,6 +27,7 @@
         height: 100vw;
         overflow-x: auto;
         white-space: nowrap;
+        scroll-snap-type: x mandatory;
     }
     section{
         position: relative;
@@ -34,6 +36,7 @@
         overflow: hidden;
         @media screen and(max-width: $breakpoint-phone) {
             width: 100vw;
+            scroll-snap-align: center;
         }
     }
     img{
@@ -46,6 +49,32 @@
         }
         /* cubic-bezier(0.68, -0.55, 0.265, 1.55); */
         /* filter: blur(10px); */
+    }
+    button {
+        position: absolute;
+        display: none;
+        z-index: 9;
+        @media screen and(max-width: $breakpoint-phone) {
+            display: block;
+            background: none;
+            border: none;
+            position: absolute;
+            height: 5.33%;
+            width: 5.33%;
+            top: 4.8%;
+            &:nth-child(1){
+                height: 18px;
+                left:6.9333% ;
+            }
+            &:nth-child(2) {
+                right : 6.9333%;
+            }
+        }
+        svg {
+            height: 100%;
+            width: 100%;
+            pointer-events: none;
+        }
     }
 }
 .lent {

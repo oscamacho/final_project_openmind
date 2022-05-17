@@ -239,6 +239,9 @@
     margin-left: 20px;
     transition: height 0.9s;
   }
+  .container-help ul h3 {
+    display: none;
+  }
 }
 .container-help ul svg {
   position: absolute;
@@ -294,7 +297,7 @@
   height: 40px;
   background-color: black;
   color: white;
-  font-size: 12px;
+  font-size: 10px;
   column-gap: 10px;
 }
 @media screen and (max-width: 800px) {
@@ -323,10 +326,25 @@
 }
 @media screen and (max-width: 800px) {
   .social-footer {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    flex-direction: column;
+    margin-top: 24px;
+    margin-bottom: 80px;
     bottom: 0;
     position: relative;
+  }
+}
+.social-footer section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (max-width: 800px) {
+  .social-footer section {
+    margin-top: 28px;
+    width: 68%;
+    padding: 0 58px;
+    justify-content: space-between;
   }
 }
 .social-footer a {
@@ -339,8 +357,11 @@
   margin-left: 10px;
 }
 @media screen and (max-width: 800px) {
+  .social-footer a {
+    margin-left: 0;
+  }
   .social-footer a svg {
-    margin-left: 10px;
+    margin-left: 0px;
   }
 }
 .social-footer a #instagram:hover {
@@ -395,6 +416,14 @@
   overflow: hidden;
   transition: all 0.5s;
 }
+@media screen and (max-width: 800px) {
+  .add-to-cart {
+    max-width: 400px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 87.4666666667%;
+  }
+}
 .add-to-cart section {
   position: absolute;
   box-sizing: border-box;
@@ -405,6 +434,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+@media screen and (max-width: 800px) {
+  .add-to-cart section {
+    justify-content: center;
+    gap: 10px;
+  }
 }
 .add-to-cart span {
   position: relative;
@@ -432,6 +467,11 @@
   margin-left: 2px;
   outline: none;
   /* problem here */
+}
+@media screen and (max-width: 800px) {
+  .heart-item-button {
+    display: none;
+  }
 }
 
 @keyframes heart-animation {
@@ -485,6 +525,7 @@
 }
 
 #image-grid {
+  position: relative;
   display: grid;
   grid-template-columns: 50% 50%;
   width: 66vw;
@@ -499,6 +540,7 @@
     height: 100vw;
     overflow-x: auto;
     white-space: nowrap;
+    scroll-snap-type: x mandatory;
   }
 }
 #image-grid section {
@@ -510,6 +552,7 @@
 @media screen and (max-width: 800px) {
   #image-grid section {
     width: 100vw;
+    scroll-snap-align: center;
   }
 }
 #image-grid img {
@@ -524,6 +567,34 @@
   #image-grid img {
     position: relative;
   }
+}
+#image-grid button {
+  position: absolute;
+  display: none;
+  z-index: 9;
+}
+@media screen and (max-width: 800px) {
+  #image-grid button {
+    display: block;
+    background: none;
+    border: none;
+    position: absolute;
+    height: 5.33%;
+    width: 5.33%;
+    top: 4.8%;
+  }
+  #image-grid button:nth-child(1) {
+    height: 18px;
+    left: 6.9333%;
+  }
+  #image-grid button:nth-child(2) {
+    right: 6.9333%;
+  }
+}
+#image-grid button svg {
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
 }
 
 .lent {
@@ -664,6 +735,11 @@
   align-items: center;
   justify-content: space-between;
 }
+@media screen and (max-width: 800px) {
+  .filter-product {
+    display: none;
+  }
+}
 .filter-product a {
   color: #000;
   text-decoration: none;
@@ -703,7 +779,7 @@
   }
 }
 .carousel {
-  background-color: var(--white-main);
+  background-color: #f5f5f5;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -726,7 +802,7 @@
   overflow: hidden;
   position: relative;
   width: 100%;
-  background-color: var(--white-main);
+  background-color: #f5f5f5;
   display: flex;
   align-items: center;
   height: 160px;

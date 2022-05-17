@@ -28,6 +28,12 @@
     align-items: center;
     overflow: hidden;
     transition: all .5s;
+    @media screen and(max-width: $breakpoint-phone) {
+        max-width: 400px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 87.4666666667%;
+    }
     section {
         position: absolute;
         box-sizing: border-box;
@@ -38,6 +44,10 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        @media screen and(max-width: $breakpoint-phone) {
+            justify-content: center;
+            gap: 10px;
+        }
     }
     span {
         position: relative;
@@ -64,7 +74,10 @@
     width:64px;
     background-color: #000;
     margin-left: 2px;
-    outline: none; 
+    outline: none;
+    @media screen and(max-width: $breakpoint-phone) {
+        display: none;
+    }
     /* problem here */
 }
 @keyframes heart-animation{

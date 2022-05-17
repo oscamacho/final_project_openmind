@@ -74,7 +74,7 @@ function toDropContent(i) {
 function numInCart () {
    return getLocalStorage("0")
 }
-cartButton = document.getElementsByClassName("add-to-cart")
+let cartButton = document.getElementsByClassName("add-to-cart")
 var p = document.createElement("h4");
 const newContent = document.createTextNode(1);
 const shopBag = cartButton[0].children[2].children[1].children[0]
@@ -126,14 +126,14 @@ const lent = document.getElementsByClassName("lent")
 var imagesContainer = document.getElementById("image-grid")
 
 function onMouseOutImage(element) {
-    element.children[0].style.transform = `none`
-    element.children[0].addEventListener('mousemove', onMove, false);
+    element.children[2].style.transform = `none`
+    element.children[2].addEventListener('mousemove', onMove, false);
     console.log(element)
 }
 
 const handleRemoveMove = (element) => {
-    element.children[0].style.transform = `translate(0px, 0px)`
-    element.children[0].removeEventListener("mousemove", onMove, false)
+    element.children[2].style.transform = `translate(0px, 0px)`
+    element.children[2].removeEventListener("mousemove", onMove, false)
     console.log("onmoved", element)
 }
 
@@ -153,9 +153,10 @@ const onMove = (e) => {
 }
 
 for (const element of imagesContainer.children){
-    element.children[0].addEventListener('mousemove', onMove, false);
-    element.children[0].addEventListener('mouseout', () => onMouseOutImage(element));
-    element.children[0].addEventListener("click", () => handleRemoveMove(element));
+    console.log(element.children[2])
+    element.children[2].addEventListener('mousemove', onMove, false);
+    element.children[2].addEventListener('mouseout', () => onMouseOutImage(element));
+    element.children[2].addEventListener("click", () => handleRemoveMove(element));
 }
 //-------------------------------
 //LOCAL STORAGE

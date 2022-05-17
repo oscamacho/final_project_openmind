@@ -330,6 +330,7 @@ button {
     padding: 80px;
     /* height: 100%; */
 }
+
 .card-grid h2 {
     line-height: 3rem;
 }
@@ -711,53 +712,60 @@ button {
     grid-template-rows: calc(100vw/4) calc(100vw/7); /* tricky to keep the ratio */
     box-sizing: unset;
 }
-
-.card-product a {
+.card-img-container{
     position: relative;
 }
-.card-product a p {
+
+.card-img-container a {
+    position: relative;
+}
+.card-img-container p {
     position: absolute;
     height: 15px;
-    left: 18px;
+    left: 4.02010050251%;
     /* left: 18px;
     top: 18px; */
-    font-size: var(--ultra-small-size);
+    font-size: 10px;
 }
-.card-product a p:nth-child(2) {
-    top: 18px;
+.card-img-container p:nth-child(2) {
+    top: 5.27638190955%;
 }
-.card-product a p:nth-child(3) {
-    bottom: 18px;
+.card-img-container p:nth-child(3) {
+    bottom: 5.27638190955%;
 }
 
-.card-product a button {
+.card-img-container button {
     position: absolute;
-    top: 18px;
-    right: 18px;
+    top: 4.52261306533%;
+    right: 4.52261306533%;
     background: none;
     border: none;
+    outline: none;
 }
-.card-product a svg {
+.card-img-container button:focus{
+    border-bottom: 2px solid var(--strawberry-color);
+}
+
+.card-img-container svg {
     background-color: none;
 }
-.card-product a button svg path {
+.card-img-container button svg path {
     fill: black;
 }
-.card-product:hover{
-    background-color: var(--white-abusive);
-}
-.card-product img {
+.card-img-container img {
     height: 100%;
     width: 100%;
     object-fit: cover;
 }
-.card-product div {
+.card-product:hover{
+    background-color: var(--white-abusive);
+}
+.card-product div:nth-child(2) {
     /* display: flex; */
     position: relative;
     display: flex;
     flex-direction: column;
-    font-size: 11px;
-    /* align-items: center; */
+    font-size: var(--ultra-small-size);
     justify-content: space-between;
     text-align: left;
     padding: 8% 5%;
@@ -773,14 +781,18 @@ button {
         bottom:100%
     }
 }
-.card-product-span-top,
-.card-product-span-bottom{
+/* .card-product-span-top,
+.card-product-span-bottom,  */
+.card-product-span-bottom-bottom,
+.card-product-span-bottom-top,
+.card-product-span-top-top,
+.card-product-span-top-bottom{
     box-sizing: border-box;
-    height: 100%;
+    height: 50%;
     width: 50%;
     position: absolute;
     background-color: var(--strawberry-color);
-    transition: all 1s cubic-bezier(0.47, 0, 0.745, 0.715);
+    transition: all 1.5s cubic-bezier(0.47, 0, 0.745, 0.715);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -788,15 +800,33 @@ button {
     justify-content: center;
     padding: 3px;
 }
-.card-product-span-bottom{
-    bottom: -100%;
+.card-product-span-bottom-top{
+    top: 0%;
     right: 0;
     align-items: center;
+    transform: translateY(200%);
+    justify-content: flex-end;
 }
-.card-product-span-top{
-    top: -100%;
+.card-product-span-bottom-bottom{
+    bottom: 0%;
+    right:0;
+    align-items: flex-start;
+    transform: translateY(200%);
+    justify-content: flex-start;
+    align-items: center;
+}
+.card-product-span-top-bottom{
+    bottom: 0%;
     left: 0;
     text-align: center;
+    transform: translateY(-200%);
+    justify-content: end;
+}
+.card-product-span-top-top{
+    top:0%;
+    left: 0;
+    transform: translateY(-200%);
+    justify-content: flex-end;
 }
 .card-product-span-enter{
     height: 90px;
@@ -1547,16 +1577,14 @@ when resize from mobile with js opened content.
         margin: 0 !important;
         width: 100%;
         max-width: 398px;
-        max-height: 100vh;
-        /* min-height: 570px; */
         display: grid;
-        grid-template-rows: 1fr 1fr !important;
+        grid-template-rows: calc(100vw/2) calc(100vw/2) !important;
     }
-    .card-product div {
+    .card-product div:nth-child(2) {
         display: flex !important;
         padding-bottom: 15.6%;
     }
-    .card-product div > span h2 {
+    .card-product div:nth-child(2) > span h2 {
         margin-bottom: 12px;
     }
     .price-product {
@@ -1571,7 +1599,7 @@ when resize from mobile with js opened content.
         display: flex;
         flex-direction: column;
     } */
-    .card-product img {
+    .card-img-container img {
         height: 100%;
         width: 100%;
         object-fit: cover;

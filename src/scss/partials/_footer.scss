@@ -135,6 +135,9 @@
             overflow: hidden;
             margin-left: 20px;
             transition: height .9s;
+            h3 {
+                display: none;
+            }
         }
         svg {
             position: absolute;
@@ -188,11 +191,11 @@
     height: 40px;
     background-color: black;
     color:white;
-    font-size: $ultra-small-size;
+    font-size: 10px;
     column-gap: 10px;
     @media screen and (max-width: $breakpoint-phone){
         flex-direction: column;
-        height: 110px;   
+        height: 110px;
     }
     p, a{
         margin-left: 8px;
@@ -213,10 +216,23 @@
     width: 100%;
     line-height: 18.75px;
     @media screen and (max-width: $breakpoint-phone){
-        margin-top: 10px;
-        margin-bottom: 10px;
+        flex-direction: column;
+        margin-top: 24px;
+        margin-bottom: 80px;
         bottom: 0;
         position: relative;
+    }
+    section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        @media  screen and (max-width: $breakpoint-phone) {
+            margin-top: 28px;
+            width: 68%;
+            padding: 0 58px;
+            justify-content: space-between;
+        }
     }
     a {
         width: 25px;
@@ -227,8 +243,9 @@
         align-items: center;
         margin-left: 10px;
         @media screen and (max-width: $breakpoint-phone){
+            margin-left: 0;
             svg {
-                margin-left: 10px;
+                margin-left: 0px;
             }
         }
         #instagram:hover {

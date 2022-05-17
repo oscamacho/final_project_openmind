@@ -1,10 +1,12 @@
+@import "./variables";
+
 @keyframes scroll {
     0% {transform: translateX(0);}
     100% {transform: translateX(calc(-250px *6));}
 }
 
 .carousel {
-    background-color: var(--white-main);
+    background-color: $white-main;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,7 +29,7 @@
     overflow: hidden;
     position: relative;
     width: 100%;
-    background-color: var(--white-main);
+    background-color: $white-main;
     display: flex;
     align-items: center;
     height: 160px;

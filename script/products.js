@@ -42,7 +42,7 @@ var numColoumn = 4;
         numColoumn = 6;
         animateGrid(numColoumn)
     }
-    //controllo wishlist
+    // controllo wishlist
     Array.from(cardProduct).forEach((el, i) => {
         let value = getCartFromLocalStorage(i)
         el.children[1].children[0].innerHTML = `${value}`
@@ -60,13 +60,17 @@ for(const element of productCardBody){
     let productButton = element.lastElementChild;
     productButton.addEventListener("click",() => addToCart(element));
 }
+
+
 //-------------------------------
 //ADD TO CART BUTTON ANIMATION
 //-------------------------------
 const heartButtons = document.getElementsByClassName("add-to-wishlist")
 for(let heart of heartButtons){
-    heart.addEventListener("click", () => {add} )
+    heart.addEventListener("click", () => {addToWishlist(heart)} )
 }
+
+
 //-------------------------------
 //GRID ROWS ANIMATION
 //-------------------------------
@@ -106,9 +110,9 @@ function animateGrid(numCol){
     }
 } 
 
+
 /**
- * 
- * @param {HTMLObject} e element reference,
+ * @param {HTMLObject} e element reference
  * the function add +1 to the product clicked in the cart saved in localstorage,
  * and triggered the animation
  */
@@ -119,57 +123,58 @@ function addToCart (e) {
     </svg>
     `
     let parent = e.parentNode
-    // localStorage.removeItem("wishlist")
-    addToCartLocalStorage(1)
-    // remCartFromLocalStorage(1)
+    let productCardID = parseInt(parent.parentNode.id)
+    console.log("id", productCardID)
+    addToCartLocalStorage(productCardID)
     let amountInWishlist = getCartFromLocalStorage(1)
-    let parentSpanTop = document.createElement("span");
-    let parentSpanBottom = document.createElement("span");
-    parentSpanTop.classList.add("card-product-span-top")
-    parentSpanBottom.classList.add("card-product-span-bottom")
-    parent.append(parentSpanTop)
-    parent.append(parentSpanBottom)
+    let parentSpanTopTop = document.createElement("span");
+    let parentSpanTopBottom = document.createElement("span");
+    let parentSpanBottomBottom = document.createElement("span");
+    let parentSpanBottomTop = document.createElement("span");
+    parentSpanTopTop.classList.add("card-product-span-top-top")
+    parentSpanTopBottom.classList.add("card-product-span-top-bottom")
+    parentSpanBottomTop.classList.add("card-product-span-bottom-top")
+    parentSpanBottomBottom.classList.add("card-product-span-bottom-bottom")
+    // parentSpanBottom.classList.add("card-product-span-bottom")
+    parent.append(parentSpanTopTop)
+    parent.append(parentSpanBottomBottom)
+    parent.append(parentSpanTopBottom)
+    parent.append(parentSpanBottomTop)
     e.children[0].style.opacity = 1;
     setTimeout(() => {
-        parentSpanTop.style.top = `0%`;
-        parentSpanBottom.style.bottom = `0%`;
-        parentSpanBottom.innerHTML=`
+        parentSpanTopTop.style.transform = `translateY(0%)`;
+        parentSpanTopBottom.style.transform=`translateY(0%)`;
+        parentSpanBottomBottom.style.transform=`translateY(0%)`;
+        parentSpanBottomTop.style.transform=`translateY(0%)`;
+        parentSpanBottomTop.innerHTML=`
         <h3> +1 </h3>
-        ${cartSVG}
         `
-        parentSpanTop.innerHTML = "<h2>ITEM ADDED</h2> <h2>TO CART </h2>"
+        parentSpanBottomBottom.innerHTML=`${cartSVG}`
+        parentSpanTopTop.innerHTML = "<h2>ITEM ADDED</h2>"
+        parentSpanTopBottom.innerHTML="<h2>TO CART </h2>"
     }, 200);
     setTimeout(() => {
-        parentSpanTop.style.transform = `translateY(100%)`;
-        parentSpanBottom.style.transform = `translateY(-100%)`;
+        parentSpanTopTop.style.transform = `translateX(-200%)`;
+        parentSpanTopBottom.style.transform = `translateX(200%)`;
+        parentSpanBottomBottom.style.transform = `translateX(200%)`;
+        parentSpanBottomTop.style.transform = `translateX(-200%)`;
         parent.children[0].innerHTML = `${amountInWishlist}`
     }, 2500)
     setTimeout(() => {
-        parentSpanTop.remove()
-        parentSpanBottom.remove()
-    }, 3500)
+        parentSpanTopTop.remove();
+        parentSpanTopBottom.remove();
+        parentSpanBottomBottom.remove();
+        parentSpanBottomTop.remove();
+    }, 4500)
 }
 
-//hard
-const carousel = document.getElementsByClassName("carousel")
-let windowW = window.innerWidth
-const mid = (a, b) => {
-    return (a + b)/2
-} 
-for(let i = 0; i<carousel[0].children.length; i++){
-    let rect =  carousel[0].children[i].getBoundingClientRect();
-    console.log(rect.left - windowW/2, "\n");
-    if (Math.abs(mid(rect.left, rect.right) - windowW/2) < 200 ) {
-        carousel[0].children[i].style.width = `150px`;
-    } else if(Math.abs(mid(rect.left, rect.right) - windowW/2) > 200) {
-        carousel[0].children[i].style.transform = `rotateY(70deg)`;
-        carousel[0].children[i].style.opacity = .5;
 
-    } else {
-        carousel[0].children[i].style.transform = `rotateY(45deg)`;
-        carousel[0].children[i].style.opacity = .7;
-    }
-};
+function addToWishlist(e){
+    e.children[0].children[0].style.fill = `var(--strawberry-color)`
+    addToWishlistLocalStorage(2)
+}
+
+
 
 /**
  * @param {object} el element reference
@@ -201,9 +206,8 @@ function addToCartLocalStorage(id) {
 }
 
 /**
- * 
  * @param {Number} id id field of the object stored in the array
- * @param {*String} key key of the localstorage
+ * @param {String} key key of the localstorage
  * @returns the index of the requestes object in the array and the array itself
  *  or return null and empty array if the object with the specified id is not found 
  */
@@ -227,7 +231,6 @@ function getFromLocalStorage(id, key){
 }
 
 /**
- * 
  * @param {Number} id 
  * @returns return the amount of the specific ids product in localstorage
  *  or return false if the product is not found 
@@ -242,7 +245,6 @@ function getCartFromLocalStorage(id){
 }
 
 /**
- * 
  * @param {Number} id remove the specific id object from the cart in localstorage
  */
 function remCartFromLocalStorage(id){
@@ -258,7 +260,6 @@ function remCartFromLocalStorage(id){
 }
 
 /**
- * 
  * @param {Number} id 
  * @returns return the amount from wishlist with the specific id
  */
@@ -272,10 +273,10 @@ function getWishlistFromLocalStorage(id){
 }
 
 /**
- * 
  * @param {Number} id increment of 1 the amount of the specific id product in the localstorage
  */
  function addToWishlistLocalStorage(id) {
+    //  localStorage.removeItem("wishlist")
     let [isOnWish, arr] = getFromLocalStorage(id, "wishlist")
     console.log(arr)
     if(isOnWish === null){
@@ -286,3 +287,26 @@ function getWishlistFromLocalStorage(id){
     let strWishlist = JSON.stringify(arr)
     localStorage.setItem("wishlist", strWishlist)
 }
+
+
+
+// //hard
+// const carousel = document.getElementsByClassName("carousel")
+// let windowW = window.innerWidth
+// const mid = (a, b) => {
+//     return (a + b)/2
+// } 
+// for(let i = 0; i<carousel[0].children.length; i++){
+//     let rect =  carousel[0].children[i].getBoundingClientRect();
+//     console.log(rect.left - windowW/2, "\n");
+//     if (Math.abs(mid(rect.left, rect.right) - windowW/2) < 200 ) {
+//         carousel[0].children[i].style.width = `150px`;
+//     } else if(Math.abs(mid(rect.left, rect.right) - windowW/2) > 200) {
+//         carousel[0].children[i].style.transform = `rotateY(70deg)`;
+//         carousel[0].children[i].style.opacity = .5;
+
+//     } else {
+//         carousel[0].children[i].style.transform = `rotateY(45deg)`;
+//         carousel[0].children[i].style.opacity = .7;
+//     }
+// };
