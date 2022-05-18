@@ -94,7 +94,7 @@ button {
 .navbar-main a {
     position: relative;
     display: inline;
-    margin: 10px;
+    margin: 1.7152658%;
     text-decoration: none;
     color: rgb(0, 0, 0);
     font-weight: bolder;
@@ -128,7 +128,7 @@ button {
     left: 50%;
     transform: translateX(-50%);
     text-transform: uppercase;
-    padding: 25px;
+    padding: 1.546%;
     border: 1px dashed black;
 }
 
@@ -1013,7 +1013,7 @@ button {
 }
 /* title */
 .item-desc > section:nth-child(1){
-    margin-bottom: 30px;
+    margin-bottom: 5.05%;
 }
 .item-desc > section:nth-child(1) h4 {
     font-weight: lighter;
@@ -1028,7 +1028,7 @@ button {
     /* gap: 60px; */
 }
 .item-desc section:nth-child(2) h4, h5 {
-    margin-left: 10px;
+    margin-left: 0;
 }
 .item-desc section:nth-child(2) h5 {
     font-weight: lighter;
@@ -1274,7 +1274,7 @@ when resize from mobile with js opened content.
         left: 50%;
         transform: translateX(-50%);
         text-transform: uppercase;
-        padding: 5px;
+        padding: 0;
         border: 1px dashed black;
     }
     .slider svg {
@@ -1600,12 +1600,8 @@ when resize from mobile with js opened content.
         padding: 0px 0px;
         display: flex;
         justify-content: start;
-        font-size: 13px;
+        font-size: 11px;
     }
-    /* .price-product span {
-        display: flex;
-        flex-direction: column;
-    } */
     .card-img-container img {
         height: 100%;
         width: 100%;
@@ -1675,3 +1671,41 @@ when resize from mobile with js opened content.
         display: none;
     }
   }
+      
+  @media only screen and (max-width: 300px) {
+    .navbar-main a svg {
+        height: 15px;
+    }
+    .navbar-main h1 {
+        font-weight: lighter;
+        text-align: center;
+        position: absolute;
+        font-size: 15px;
+        font-family: var(--font-light);
+        left: 50%;
+        transform: translateX(-50%);
+        text-transform: uppercase;
+        padding: 0;
+        border: 1px dashed black;
+    }
+    .card-product div:nth-child(2) > span h2 {
+        margin: 0;
+    }
+    .price-product {
+        background-color: rgb(255, 255, 255);
+        box-sizing: border-box;
+        padding: 0px 0px;
+        display: flex;
+        justify-content: start;
+        font-size: 11px;
+        height: auto;
+    }
+    .price-product span {
+        display: flex;
+        flex-direction: column;
+    }
+    .price-product span p {
+        font-size: 8px;
+        margin-left: 0;
+    }
+}

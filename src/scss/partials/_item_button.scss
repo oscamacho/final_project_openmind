@@ -8,7 +8,7 @@
     left: -100%;
     display: flex;
     justify-content: center;
-    background-color: rgb(187, 48, 82);
+    // background-color: rgb(187, 48, 82);
     svg{
         width: 18px;
         height: 18px
@@ -102,9 +102,9 @@
     svg path {
         fill: $strawberry-color;
     }    
-}
+} 
 .toggle-heart-animation {
-    animation: heart-animation 2s 1;
+    animation: heart-animation 3s 1;
 }
 .item-button-div {
     margin-top: 50px;

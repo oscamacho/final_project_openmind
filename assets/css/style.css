@@ -394,7 +394,6 @@
   left: -100%;
   display: flex;
   justify-content: center;
-  background-color: rgb(187, 48, 82);
 }
 #item-added-cart-section svg {
   width: 18px;
@@ -499,7 +498,7 @@
 }
 
 .toggle-heart-animation {
-  animation: heart-animation 2s 1;
+  animation: heart-animation 3s 1;
 }
 
 .item-button-div {
@@ -642,7 +641,7 @@
   }
 }
 .item-desc > section:nth-child(1) {
-  margin-bottom: 30px;
+  margin-bottom: 5.05%;
 }
 .item-desc > section:nth-child(1) h4 {
   font-weight: lighter;
@@ -653,8 +652,13 @@
   align-items: center;
   font-size: 18px;
 }
+@media screen and (max-width: 300px) {
+  .item-desc section:nth-child(2) {
+    font-size: 13px;
+  }
+}
 .item-desc section:nth-child(2) h4, .item-desc section:nth-child(2) h5 {
-  margin-left: 10px;
+  margin-left: 4%;
 }
 .item-desc section:nth-child(2) h5 {
   font-weight: lighter;

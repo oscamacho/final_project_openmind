@@ -16,12 +16,12 @@ var numColoumn = 4;
         fourColBtn.children[0].children[0].style.fill = "black";
         sixColBtn.children[0].children[0].style.fill = "#6B6B6B";
 
-        grid[0].style.gridTemplateColumns = `repeat(4, 1fr)`;
+        grid[0].style.gridTemplateColumns = `repeat(4, auto)`;
     
         for(var i = 0; i<cardProduct.length; i++) {
-            cardProduct[i].style.height = `576px`;
+            cardProduct[i].style.height = `auto`;
             cardProduct[i].style.marginBottom = `0px`;
-            cardProduct[i].style.gridTemplateRows= `2fr 1fr`;
+            cardProduct[i].style.gridTemplateRows= `calc(100vw/4) calc(100vw/7)`;
 
             cardProduct[i].children[0].style.height = `100%`;
             cardProduct[i].children[1].style.display = `flex`;
@@ -59,7 +59,7 @@ var numColoumn = 4;
         }
 
         if (valueWishlist>=0 && valueWishlist !== null) {
-            el.children[0].children[3].children[0].children[0].style.fill = "var(--strawberry-color)"
+            el.querySelector("path").style.fill = "var(--strawberry-color)"
         }
     });
 })()
@@ -314,10 +314,10 @@ function getWishlistFromLocalStorage(id){
     console.log(isOnWish, arr)
     if (isOnWish !== null){
         arr.splice(isOnWish, 1);
-        e.children[0].children[0].style.fill = `black`
+        e.querySelector("path").style.fill = `black`
     } else {
         arr.push(id)
-        e.children[0].children[0].style.fill = `var(--strawberry-color)`
+        e.querySelector("path").style.fill = `var(--strawberry-color)`
     }
     let strWishlist = JSON.stringify(arr)
     localStorage.setItem("wishlist", strWishlist)

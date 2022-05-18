@@ -40,6 +40,7 @@ checkLocalWishList()
 //-------------------------------
 const dropButtonList = document.getElementsByClassName("dropdown-body")
 const dropContentList = document.getElementsByClassName('dropdown-content')
+
 var animationDrop = [{
     transform: "rotateZ(90deg) translateX(-100%)", 
     opacity: "0"
@@ -50,18 +51,18 @@ const animationTime = {
     iterations: 3,
 }
 
-for(var i=0;i<dropButtonList.length;i++){
-    dropButtonList[i].addEventListener('click', toDropContent.bind(null, i))
-}
-
+Array.from(dropButtonList).forEach((e, i)=> {
+    e.addEventListener('click', toDropContent.bind(null, i))
+})
 function toDropContent(i) {
     var style = window.getComputedStyle(dropContentList[i])
-    var symbolDrop = dropButtonList[i].children[2].children[1] 
+    var symbolDrop = dropButtonList[i].querySelectorAll("span")[1]
+    console.log(symbolDrop)
     if (style.getPropertyValue("height") === "0px"){
         dropContentList[i].style.height = "200px"
         symbolDrop.style.transform = " rotateZ(90deg) scaleX(0.1)"
     } else {
-        dropContentList[i].style.height = "0px"
+        dropContentList[i].style.height = "0px";
         symbolDrop.style.transform = "scaleX(0)"
         symbolDrop.style.transform = "rotateZ(90deg) translateX(0px)"
         symbolDrop.style.opacity = "1"
@@ -71,18 +72,15 @@ function toDropContent(i) {
 //-------------------------------
 //ADD TO CART BTN
 //-------------------------------
-function numInCart () {
-   return getLocalStorage("0")
-}
 let cartButton = document.getElementsByClassName("add-to-cart")
 var p = document.createElement("h4");
 const newContent = document.createTextNode(1);
-const shopBag = cartButton[0].children[2].children[1].children[0]
+const shopBag = document.getElementsByClassName("add-to-cart-section")[0].querySelector("span")
+console.log(shopBag)
 p.appendChild(newContent)
 cartButton[0].addEventListener("click", addToCart, null)
 
 function addToCart () {
-    const id = 0
     const animation0 = [
         {left:"-100%", top: "100%"},
         {left: "0%"},
@@ -106,7 +104,7 @@ function addToCart () {
     ];
         
         const animationTiming = {
-        duration: 2300,
+        duration: 3800,
         iterations: 1,
         }
         const nodes = cartButton[0].children
@@ -114,26 +112,25 @@ function addToCart () {
         nodes[1].animate(animation1, animationTiming)
         nodes[2].animate(animation2, animationTiming)
         addLocalStorage(`item`, "1")
-
 }
 
 //---------------------------
 //IMAGE HANDLER AND MAGNIFY
 //---------------------------
-const lent = document.getElementsByClassName("lent")
 
 //image zoom
-var imagesContainer = document.getElementById("image-grid")
+let imagesContainer = document.getElementById("image-grid")
+
 
 function onMouseOutImage(element) {
-    element.children[0].style.transform = `none`
-    element.children[0].addEventListener('mousemove', onMove, false);
+    element.style.transform = `none`
+    element.addEventListener('mousemove', onMove, false);
     console.log(element)
 }
 
 const handleRemoveMove = (element) => {
-    element.children[0].style.transform = `translate(0px, 0px)`
-    element.children[0].removeEventListener("mousemove", onMove, false)
+    element.style.transform = `translate(0px, 0px)`
+    element.removeEventListener("mousemove", onMove, false)
     console.log("onmoved", element)
 }
 
@@ -146,12 +143,12 @@ const onMove = (e) => {
     target.style.transform = `translate(${x}px, ${y}px) scale(1.7, 1.7)`
 }
 
-for (const element of imagesContainer.children[0].children){
-    console.log(element.children[2])
-    element.children[0].addEventListener('mousemove', onMove, false);
-    element.children[0].addEventListener('mouseout', () => onMouseOutImage(element));
-    element.children[0].addEventListener("click", () => handleRemoveMove(element));
+for (const element of imagesContainer.querySelectorAll("img")){
+    element.addEventListener('mousemove', onMove, false);
+    element.addEventListener('mouseout', () => onMouseOutImage(element));
+    element.addEventListener("click", () => handleRemoveMove(element));
 }
+
 //-------------------------------
 //LOCAL STORAGE
 //-------------------------------
