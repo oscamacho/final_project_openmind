@@ -985,6 +985,7 @@ button {
     /* cubic-bezier(0.68, -0.55, 0.265, 1.55); */
     /* filter: blur(10px); */
 }
+
 .lent {
     position: absolute;
     border: 2px solid black;

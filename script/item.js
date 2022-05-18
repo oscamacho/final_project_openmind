@@ -126,14 +126,14 @@ const lent = document.getElementsByClassName("lent")
 var imagesContainer = document.getElementById("image-grid")
 
 function onMouseOutImage(element) {
-    element.children[2].style.transform = `none`
-    element.children[2].addEventListener('mousemove', onMove, false);
+    element.children[0].style.transform = `none`
+    element.children[0].addEventListener('mousemove', onMove, false);
     console.log(element)
 }
 
 const handleRemoveMove = (element) => {
-    element.children[2].style.transform = `translate(0px, 0px)`
-    element.children[2].removeEventListener("mousemove", onMove, false)
+    element.children[0].style.transform = `translate(0px, 0px)`
+    element.children[0].removeEventListener("mousemove", onMove, false)
     console.log("onmoved", element)
 }
 
@@ -143,20 +143,14 @@ const onMove = (e) => {
     var h = target.offsetHeight / 2
     var x = e.offsetX - w
     var y = e.offsetY - h;
-    let xx = w-e.offsetX
-    let yy = h-e.offsetY 
-    // lent[0].style.transition = `none`
-    // lent[0].style.transform=`translate(${x-150}px, ${y-150}px)`
-    // lent[0].style.backgroundSize = `${w*3}px ${h*3}px`
-    // lent[0].style.backgroundPosition = `bottom ${y}px right ${x}px`
-    target.style.transform = `translate(${x}px, ${y}px) scale(1.5, 1.5)`
+    target.style.transform = `translate(${x}px, ${y}px) scale(1.7, 1.7)`
 }
 
-for (const element of imagesContainer.children){
+for (const element of imagesContainer.children[0].children){
     console.log(element.children[2])
-    element.children[2].addEventListener('mousemove', onMove, false);
-    element.children[2].addEventListener('mouseout', () => onMouseOutImage(element));
-    element.children[2].addEventListener("click", () => handleRemoveMove(element));
+    element.children[0].addEventListener('mousemove', onMove, false);
+    element.children[0].addEventListener('mouseout', () => onMouseOutImage(element));
+    element.children[0].addEventListener("click", () => handleRemoveMove(element));
 }
 //-------------------------------
 //LOCAL STORAGE

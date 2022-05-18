@@ -47,8 +47,6 @@ var numColoumn = 4;
         numColoumn = 6;
         animateGrid(numColoumn)
     }
-    // localStorage.removeItem("wishlist")
-    // controllo wishlist
     Array.from(cardProduct).forEach((el, i) => {
         let valueCart = getCartFromLocalStorage(i);
         let [valueWishlist, _] = getWishFromLocalStorage(parseInt(el.id))
@@ -115,7 +113,7 @@ function handleScrollAnimation(){
 
 
 /**
- * @param {number} numCol set the correct animation timing based on the number of coloumns 
+ * @param {number} numCol set the correct animation timing based on the number of columns 
  */
 function animateGrid(numCol){
     for (let i = 0; i<numCol; i++) {

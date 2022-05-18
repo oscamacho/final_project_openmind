@@ -15,21 +15,41 @@
 }
 #image-grid {
     position: relative;
-    display: grid;
-    grid-template-columns: 50% 50%;
+    // display: grid;
+    // grid-template-columns: 50% 50%;
     width: 66vw;
     height: 66vw;
-    column-gap: 2px;
-    row-gap: 2px;
+    // column-gap: 2px;
+    // row-gap: 2px;
     @media screen and(max-width: $breakpoint-phone) {
-        grid-template-columns: repeat(4, 1fr);
-        width: 100%;
+        // grid-template-columns: repeat(4, 1fr);
+        width: 100vw;
         height: 100vw;
-        overflow-x: auto;
-        white-space: nowrap;
-        scroll-snap-type: x mandatory;
+        // overflow-x: auto;
+        // white-space: nowrap;
+        // scroll-snap-type: x mandatory;
     }
     section{
+        position: relative;
+        height: 100%;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        width: 66vw;
+        height: 66vw;
+        column-gap: 2px;
+        row-gap: 2px;
+        overflow: hidden;
+        @media screen and(max-width: $breakpoint-phone) {
+            grid-template-columns: repeat(4, 1fr);
+            width: 100vw;
+            height: 100vw;
+            overflow-x: auto;
+            white-space: nowrap;
+            scroll-snap-type: x mandatory;
+        }
+    }
+    span {
         position: relative;
         height: 100%;
         width: 100%;
@@ -46,6 +66,7 @@
         transition: all .5s linear;
         @media screen and(max-width: $breakpoint-phone) {
             position: relative;
+            width: 100vw;
         }
         /* cubic-bezier(0.68, -0.55, 0.265, 1.55); */
         /* filter: blur(10px); */
@@ -58,17 +79,9 @@
             display: block;
             background: none;
             border: none;
-            position: absolute;
             height: 5.33%;
             width: 5.33%;
             top: 4.8%;
-            &:nth-child(1){
-                height: 18px;
-                left:6.9333% ;
-            }
-            &:nth-child(2) {
-                right : 6.9333%;
-            }
         }
         svg {
             height: 100%;
@@ -76,6 +89,15 @@
             pointer-events: none;
         }
     }
+    
+}
+.image-heart{
+    position: sticky;
+    right : 6.9333%;
+}
+.image-back {
+    position: absolute;
+    left:6.9333% ;
 }
 .lent {
     position: absolute;
