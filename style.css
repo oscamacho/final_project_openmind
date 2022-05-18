@@ -384,7 +384,7 @@ button {
 }
 @keyframes scroll {
     0% {transform: translateX(0);}
-    100% {transform: translateX(calc(-250px *6));}
+    100% {transform: translateX(calc(-220px *6));}
     }
     
 .slider svg {
@@ -403,28 +403,10 @@ button {
     align-items: center;
     height: 160px;
 }
-.slider:before,
-.slider:after{
-    content: "";
-    height: 100px;
-    position: absolute;
-    width: 200px;
-    z-index: 2;
-}
-.slider:after {
-    right: 0;
-    top: 0;
-    transform: rotateZ(180deg);
-}
-.slider:before {
-    left: 0;
-    top: 0;
-}
 .slide-track {
-    animation: scroll 45s linear infinite;
     display: flex;
     justify-content: center;
-    width: calc(250px * 12);
+    width: calc(220px * 12);
 }
 .slide-track:hover{
     animation-play-state: paused;
@@ -432,7 +414,7 @@ button {
 .slide {
     display: flex;
     box-sizing: border-box;
-    width: 250px;
+    width: calc(100vw/6);
     padding: 10px;
     justify-content: start;
     flex-direction: column;
@@ -1291,27 +1273,13 @@ when resize from mobile with js opened content.
         align-items: center;
         height: 160px;
     }
-    .slider:before,
-    .slider:after{
-        content: "";
-        position: absolute;
-        z-index: 2;
-    }
-    .slider:after {
-        right: 0;
-        top: 0;
-        transform: rotateZ(180deg);
-    }
-    .slider:before {
-        left: 0;
-        top: 0;
-    }
     .slide-track {
         animation: scroll 45s linear infinite;
-        display: flex;
-        justify-content: center;
-        width: calc(250px * 12);
-        }
+        width: calc(220px * 12);
+    }
+    .slide {
+        width: 220px;
+    }
     .carousel {
         width: auto;
         background-color: var(--white-main);

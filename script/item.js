@@ -1,39 +1,54 @@
+//for sample to not use hash routing or copycat 16 item.html i use product id = 0
+const productID = 0
 //-------------------------------
 //HEART ADD TO WISHLIST
 //-------------------------------
 // sample implementation of query with LocalStorage
-var heartButton = document.getElementsByClassName("heart-item-button")
-var heartPath = document.getElementById("heart-svg-path")
-var isActive = getLocalStorage("wishList")
+const heartButton = document.querySelector(".heart-item-button")
+const heartButtonSmallScreen = document.querySelector(".image-heart")
+const heartPath = document.getElementById("heart-svg-path")
+const itemInCart = document.querySelector(".item-in-cart").children[0];
+let [isActive, _] = getWishFromLocalStorage(productID)
+let isInCar = getCartFromLocalStorage(productID)
 
-heartButton[0].addEventListener("click", handleClickHeart)
+if(isActive){
+    heartButton.children[0].classList.add("toggle-heart-animation")
+    heartButton.style.background = "rgb(187, 48, 82)"  
+    console.log(getLocalStorage("wishList"))
+    heartButton.style.transform="rotateY(180deg)";
+    heartButtonSmallScreen.querySelector("path").style.fill = "rgb(187, 48, 82)";
+}
 
-function checkLocalWishList() {
-    if (isActive) {
-        heartButton[0].style.background = "rgb(187, 48, 82)"
-        heartButton[0].style.transform="rotateY(180deg)"  
-    }
+heartButton.addEventListener("click", handleClickHeart)
+heartButtonSmallScreen.addEventListener("click", handleClickHeart)
+
+if (isActive) {
+    heartButton.style.background = "rgb(187, 48, 82)"
+    heartButton.style.transform="rotateY(180deg)"  
+}
+if (isInCar){
+    itemInCart.innerHTML = `${isInCar} items in cart`
 }
 
 function handleClickHeart() {
     if (isActive) {
-        heartButton[0].children[0].classList.remove("toggle-heart-animation")
-        removeLocalStorage("wishList")
+        heartButton.children[0].classList.remove("toggle-heart-animation")
         heartPath.style.fill = "white"
-        heartButton[0].style.background = "black"
-        heartButton[0].style.transform="rotateY(0deg)"  
+        heartButton.style.background = "black"
+        heartButton.style.transform="rotateY(0deg)";
+        heartButtonSmallScreen.querySelector("path").style.fill = "black";
+
     } else {
-        heartButton[0].children[0].classList.add("toggle-heart-animation")
-        addLocalStorage("wishList", "#")
-        heartButton[0].style.background = "rgb(187, 48, 82)"  
+        heartButton.children[0].classList.add("toggle-heart-animation")
+        heartButton.style.background = "rgb(187, 48, 82)"  
         console.log(getLocalStorage("wishList"))
-        heartButton[0].style.transform="rotateY(180deg)"
+        heartButton.style.transform="rotateY(180deg)";
+        heartButtonSmallScreen.querySelector("path").style.fill = "rgb(187, 48, 82)";
     }
-    heartButton[0].style.transition="all 0.5s linear"
+    addToWishlistLocalStorage(productID)
+    heartButton.style.transition="all 0.5s linear"
     isActive = !isActive 
 }
-
-checkLocalWishList()
 
 //-------------------------------
 //DROPDOWN COMPONENTS
@@ -59,23 +74,23 @@ function toDropContent(i) {
     var symbolDrop = dropButtonList[i].querySelectorAll("span")[1]
     console.log(symbolDrop)
     if (style.getPropertyValue("height") === "0px"){
-        dropContentList[i].style.height = "200px"
-        symbolDrop.style.transform = " rotateZ(90deg) scaleX(0.1)"
+        dropContentList[i].style.height = "200px";
+        symbolDrop.style.transform = " rotateZ(90deg) scaleX(0.1)";
     } else {
         dropContentList[i].style.height = "0px";
-        symbolDrop.style.transform = "scaleX(0)"
-        symbolDrop.style.transform = "rotateZ(90deg) translateX(0px)"
-        symbolDrop.style.opacity = "1"
+        symbolDrop.style.transform = "scaleX(0)";
+        symbolDrop.style.transform = "rotateZ(90deg) translateX(0px)";
+        symbolDrop.style.opacity = "1";
     }
 }
 
 //-------------------------------
 //ADD TO CART BTN
 //-------------------------------
-let cartButton = document.getElementsByClassName("add-to-cart")
+let cartButton = document.getElementsByClassName("add-to-cart");
 var p = document.createElement("h4");
 const newContent = document.createTextNode(1);
-const shopBag = document.getElementsByClassName("add-to-cart-section")[0].querySelector("span")
+const shopBag = document.getElementsByClassName("add-to-cart-section")[0].querySelector("span");
 console.log(shopBag)
 p.appendChild(newContent)
 cartButton[0].addEventListener("click", addToCart, null)
@@ -111,7 +126,9 @@ function addToCart () {
         nodes[0].animate(animation0, animationTiming)
         nodes[1].animate(animation1, animationTiming)
         nodes[2].animate(animation2, animationTiming)
-        addLocalStorage(`item`, "1")
+        addToCartLocalStorage(productID)
+        isInCar++
+        itemInCart.innerHTML = `${isInCar} items in cart`
 }
 
 //---------------------------
@@ -167,3 +184,118 @@ function addLocalStorage(key, value) {
 function removeLocalStorage(key) {
     localStorage.removeItem(key)
 }
+
+
+/**
+ * 
+ * @param {Number} id increment of 1 the amount of the specific id product in the localstorage
+ */
+ function addToCartLocalStorage(id) {
+    let [isOnWish, arr] = getFromLocalStorage(id, "cart")
+    if(isOnWish === null){
+        arr.push({"id": id, "amount": 1})
+    } else {
+        arr[isOnWish]["amount"]+=1
+    }
+    let strWishlist = JSON.stringify(arr)
+    localStorage.setItem("cart", strWishlist)
+}
+
+/**
+ * @param {Number} id id field of the object stored in the array
+ * @param {String} key key of the localstorage
+ * @returns the index of the requestes object in the array and the array itself
+ *  or return null and empty array if the object with the specified id is not found 
+ */
+function getFromLocalStorage(id, key){
+    let res = localStorage.getItem(key);
+    if (res) {
+        let resList = JSON.parse(res);
+        let isOnList = resList.findIndex((e) => {
+            return e.id === id;
+        })
+        if(isOnList >= 0){
+            return [isOnList, resList];
+        } else {
+            return [null, resList];
+        }
+    }
+    else {
+        return [null, []];
+    }
+}
+/**
+ * @param {Number} id id field of the object stored in the array
+ * @returns the index of the requestes object in the array and the array itself
+ *  or return null and empty array if the object with the specified id is not found 
+ */
+ function getWishFromLocalStorage(id){
+    let res = localStorage.getItem("wishlist");
+    if (res) {
+        let resList = JSON.parse(res);
+        let isOnList = resList.findIndex((e) => {
+           return e === id
+        })
+        if(isOnList>=0){
+            return [isOnList, resList];
+        } else {
+            return [null, resList];
+        }
+    }
+    else {
+        return [null, []];
+    }
+}
+
+
+/**
+ * @param {Number} id 
+ * @returns return the amount of the specific ids product in localstorage
+ *  or return false if the product is not found 
+ */
+function getCartFromLocalStorage(id){
+    let [index, wishlist] = getFromLocalStorage(id, "cart");
+    if (index !== null){
+        return wishlist[index]["amount"];
+    }
+    else return false
+}
+
+/**
+ * @param {Number} id remove the specific id object from the cart in localstorage
+ */
+function remCartFromLocalStorage(id){
+    let [isOnCart, arr] = getFromLocalStorage(id, "cart")
+    if(isOnCart !== null){
+        arr.splice(isOnCart, 1)
+    }
+    let strCartList = JSON.stringify(arr)
+    localStorage.setItem("cart", strCartList)
+}
+
+/**
+ * @param {Number} id 
+ * @returns return the amount from wishlist with the specific id
+ */
+function getWishlistFromLocalStorage(id){
+    let [index, wishlist] = getFromLocalStorage(id, "wishlist");
+    console.log("index", index, wishlist)
+    if (index !== null){
+        return wishlist[index];
+    }
+    else return false
+}
+
+
+ function addToWishlistLocalStorage(id) {
+    let [isOnWish, arr] = getWishFromLocalStorage(id)
+    console.log(isOnWish, arr)
+    if (isOnWish !== null){
+        arr.splice(isOnWish, 1);
+    } else {
+        arr.push(id)
+    }
+    let strWishlist = JSON.stringify(arr)
+    localStorage.setItem("wishlist", strWishlist)
+}
+
