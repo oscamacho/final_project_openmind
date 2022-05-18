@@ -938,6 +938,12 @@ button {
 
 }
 
+.product-is-on-cart{
+    position: absolute;
+    color: var(--strawberry-color);
+    font-size: 80%;
+    bottom: 4%;
+}
 
 /*
 :---------------------------------:
