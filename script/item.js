@@ -14,7 +14,6 @@ let isInCar = getCartFromLocalStorage(productID)
 if(isActive){
     heartButton.children[0].classList.add("toggle-heart-animation")
     heartButton.style.background = "rgb(187, 48, 82)"  
-    console.log(getLocalStorage("wishList"))
     heartButton.style.transform="rotateY(180deg)";
     heartButtonSmallScreen.querySelector("path").style.fill = "rgb(187, 48, 82)";
 }
@@ -41,7 +40,6 @@ function handleClickHeart() {
     } else {
         heartButton.children[0].classList.add("toggle-heart-animation")
         heartButton.style.background = "rgb(187, 48, 82)"  
-        console.log(getLocalStorage("wishList"))
         heartButton.style.transform="rotateY(180deg)";
         heartButtonSmallScreen.querySelector("path").style.fill = "rgb(187, 48, 82)";
     }
@@ -169,22 +167,6 @@ for (const element of imagesContainer.querySelectorAll("img")){
 //-------------------------------
 //LOCAL STORAGE
 //-------------------------------
-function getLocalStorage(key) {
-    val = localStorage.getItem(key)
-    if (val !== null){
-        return val
-    }
-    return false
-}
-
-function addLocalStorage(key, value) {
-    localStorage.setItem(key, value)
-}
-
-function removeLocalStorage(key) {
-    localStorage.removeItem(key)
-}
-
 
 /**
  * 
@@ -224,12 +206,9 @@ function getFromLocalStorage(id, key){
         return [null, []];
     }
 }
-/**
- * @param {Number} id id field of the object stored in the array
- * @returns the index of the requestes object in the array and the array itself
- *  or return null and empty array if the object with the specified id is not found 
- */
- function getWishFromLocalStorage(id){
+
+
+function getWishFromLocalStorage(id){
     let res = localStorage.getItem("wishlist");
     if (res) {
         let resList = JSON.parse(res);
@@ -247,12 +226,6 @@ function getFromLocalStorage(id, key){
     }
 }
 
-
-/**
- * @param {Number} id 
- * @returns return the amount of the specific ids product in localstorage
- *  or return false if the product is not found 
- */
 function getCartFromLocalStorage(id){
     let [index, wishlist] = getFromLocalStorage(id, "cart");
     if (index !== null){
@@ -261,22 +234,6 @@ function getCartFromLocalStorage(id){
     else return false
 }
 
-/**
- * @param {Number} id remove the specific id object from the cart in localstorage
- */
-function remCartFromLocalStorage(id){
-    let [isOnCart, arr] = getFromLocalStorage(id, "cart")
-    if(isOnCart !== null){
-        arr.splice(isOnCart, 1)
-    }
-    let strCartList = JSON.stringify(arr)
-    localStorage.setItem("cart", strCartList)
-}
-
-/**
- * @param {Number} id 
- * @returns return the amount from wishlist with the specific id
- */
 function getWishlistFromLocalStorage(id){
     let [index, wishlist] = getFromLocalStorage(id, "wishlist");
     console.log("index", index, wishlist)
@@ -287,7 +244,7 @@ function getWishlistFromLocalStorage(id){
 }
 
 
- function addToWishlistLocalStorage(id) {
+function addToWishlistLocalStorage(id) {
     let [isOnWish, arr] = getWishFromLocalStorage(id)
     console.log(isOnWish, arr)
     if (isOnWish !== null){

@@ -1,46 +1,27 @@
-var imgs = document.querySelectorAll("img")
-
-function loaded(i) {
-  console.log('loaded', i)
-}
-for (i of imgs) {
-    if (i.complete) {
-        loaded(i)
-      } else {
-        i.addEventListener('load', loaded(i))
-        i.addEventListener('error', function() {
-            console.log('error')
-        })
-      }
-}
-
-
 //-------------------------------
 //PARALLAX
 //-------------------------------
-// const image = document.getElementsByClassName("main-pics-container")[0].children[0].children[0];
+const imageSection = document.querySelector(".main-pics-container section")
 const image = document.getElementById("main-image-id") 
-// const image2 = document.getElementsByClassName("main-pics-container")[0].children[0].children[1];
+const image2 = document.getElementById("main-image-id2");
 
 function onMouseMove (event) {
-    const target = event.currentTarget;
-    const w = target.offsetWidth / 2;
-    const h = target.offsetHeight / 2;
-    var y = event.clientY - h;
-    var x = event.clientX - w;
-    image.style.filter = (`drop-shadow(${x/30-70}px ${y/30+30}px 4px var(--strawberry-color))`);
-    image.style.transform = `translate(0px,${y/8}px)`;
-    // image2.style.transform = `translate(0px,${-y/8}px)`
-    // image.style.filter= `invert(50%)`;
+    let target = event.currentTarget;
+    let w = target.offsetWidth / 2;
+    let h = target.offsetHeight / 2;
+    let y = event.clientY - h;
+    let x = event.clientX - w;
+    image.style.transform = `translate(${x/-20}px,${y/4}px) scale(1.2)`;
+    image2.style.transformOrigin = `bottom right`
+    image2.style.transform = `translate(${x/-35}px,${y/14}px) scale(.9)`
+    image2.style.filter = (`drop-shadow(${x/30-70}px ${y/30+30}px 4px var(--strawberry-color))`);
+    image2.style.filter= `blur(${(event.clientX/280)+0.7}px)`;
 
 }
 
-image.addEventListener('mousemove', function (event) {
+imageSection.addEventListener('mousemove', function (event) {
     onMouseMove(event);
   });
-  // image2.addEventListener('mousemove', function (event) {
-  //   onMouseMove(event);
-  // });
 
 //-------------------------------
 //HOME CARD TRANSITION

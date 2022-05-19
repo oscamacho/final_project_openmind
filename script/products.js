@@ -247,9 +247,9 @@ function getFromLocalStorage(id, key){
 }
 /**
  * @param {Number} id id field of the object stored in the array
- * @param {String} key key of the localstorage
  * @returns the index of the requestes object in the array and the array itself
- *  or return null and empty array if the object with the specified id is not found 
+ * or return null and array if object is not found and empty array 
+ * if localstorage haven't wishlist saved 
  */
  function getWishFromLocalStorage(id){
     let res = localStorage.getItem("wishlist");
@@ -297,7 +297,7 @@ function remCartFromLocalStorage(id){
 
 /**
  * @param {Number} id 
- * @returns return the amount from wishlist with the specific id
+ * @returns return the index of item in wishlist or false if there aren't
  */
 function getWishlistFromLocalStorage(id){
     let [index, wishlist] = getFromLocalStorage(id, "wishlist");
@@ -309,7 +309,7 @@ function getWishlistFromLocalStorage(id){
 }
 
 
- function addToWishlistLocalStorage(id, e) {
+function addToWishlistLocalStorage(id, e) {
     let [isOnWish, arr] = getWishFromLocalStorage(id)
     console.log(isOnWish, arr)
     if (isOnWish !== null){
