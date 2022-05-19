@@ -1482,13 +1482,28 @@ when resize from mobile with js opened content.
         object-fit: contain;
         line-height: 0;
     }
+    .main-pics-container section{
+        position: relative;
+        width: 100%;
+        height: 50%;
+        margin-bottom: 0;
+        object-fit: contain;
+        line-height: 0;
+        transform: none;
+        border: none;
+    }
 
-    .main-pics-container img{
+    .main-pics-container img:nth-child(2){
         position: relative;
         object-fit: cover;
         box-sizing: inherit;
         width: 100%;
-        height: 300px;
+        transform: scale(1.2);
+        /* height: 300px; */
+    }
+    .main-pics-container img:nth-child(1){
+        display: none;
+        /* height: 300px; */
     }
     .main-pics-container div {
         position: relative;
