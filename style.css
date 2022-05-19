@@ -1539,6 +1539,9 @@ when resize from mobile with js opened content.
                 PRODUCTS
     :---------------------------------:
     */
+    .filter-product section {
+        display: none;
+    }
     .grid-product {
         display: grid;
         width: 100%;
